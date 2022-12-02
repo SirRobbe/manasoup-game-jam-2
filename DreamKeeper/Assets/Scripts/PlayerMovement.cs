@@ -19,7 +19,9 @@ public class PlayerMovement : MonoBehaviour
         {
             var projectile = Instantiate(Projectile, transform.position, Quaternion.identity);
             var worldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            projectile.Direction = (worldPosition - transform.position).normalized;
+            Vector2 dir = worldPosition - transform.position;
+            dir.Normalize();
+            projectile.Direction = dir;
             Timer = 0f;
         }
     }

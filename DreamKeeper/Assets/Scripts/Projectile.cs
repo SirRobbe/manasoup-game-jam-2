@@ -9,7 +9,7 @@ public class Projectile : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        
+
         var movement = new Vector3(Direction.x, Direction.y) * (Time.deltaTime * Speed);
         transform.position += movement;
     }
