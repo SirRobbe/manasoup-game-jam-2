@@ -18,7 +18,7 @@ public class Projectile : MonoBehaviour
     {
         if(collider.CompareTag(TargetTag))
         {
-            var nightmare = collider.GetComponent<Nightmare>();
+            var nightmare = collider.GetComponentInParent<Nightmare>();
             var nightmareKilled = nightmare.Damage(Damage);
             if(nightmareKilled)
             {
