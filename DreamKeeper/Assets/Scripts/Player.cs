@@ -50,7 +50,9 @@ public class Player : MonoBehaviour
             var prefab = IsNextProjectileFireball ? Fireball : Projectile;
             IsNextProjectileFireball = false;
             var projectile = Instantiate(prefab, transform.position, Quaternion.identity);
-            var worldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            var screenPostDepth = Input.mousePosition;
+            screenPostDepth.z = transform.position.z - Cam.transform.position.z;
+            var worldPosition = Camera.main.ScreenToWorldPoint(screenPostDepth);
             Vector2 dir = worldPosition - transform.position;
             dir.Normalize();
             projectile.Direction = dir;

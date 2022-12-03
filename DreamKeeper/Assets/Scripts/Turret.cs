@@ -1,4 +1,5 @@
 ﻿using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Turret : MonoBehaviour
@@ -12,12 +13,14 @@ public class Turret : MonoBehaviour
             if(GameState.s_Nightmares.Count > 0)
             {
                 var closestNightmare = GameState.s_Nightmares[0];
-                var distance = Vector2.Distance(transform.position, GameState.s_Nightmares[0].transform.position);
+                Vector2 a = transform.position;
+                Vector2 b = GameState.s_Nightmares[0].GetComponentInChildren<NightmareMover>().transform.position;
+                var distance = Vector2.Distance(a, b);
 
                 for(int i = 1; i < GameState.s_Nightmares.Count; i++)
                 {
-                    var d = Vector2.Distance(transform.position,
-                                                 GameState.s_Nightmares[i].transform.position);
+                    b = GameState.s_Nightmares[i].GetComponentInChildren<NightmareMover>().transform.position;
+                    var d = Vector2.Distance(a, b);
                     if(d < distance)
                     {
                         distance = d;
@@ -25,7 +28,8 @@ public class Turret : MonoBehaviour
                     }
                 }
 
-                var direction3D = closestNightmare.transform.position - transform.position;
+                var direction3D = 
+                    closestNightmare.GetComponentInChildren<NightmareMover>().transform.position - transform.position;
                 var direction2D = new Vector2(direction3D.x, direction3D.y);
                 direction2D.Normalize();
             
