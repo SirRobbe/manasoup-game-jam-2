@@ -35,6 +35,20 @@ public class Turret : MonoBehaviour
 
             Timer = 0f;
         }
+        
+        foreach(var nightmare in EnemyInstantiater.s_Nightmares)
+        {
+            if(Vector2.Distance(transform.position, nightmare.transform.position) 
+               < DamageDistance)
+            {
+                Health -= DamageTaken;
+                if(Health <= 0)
+                {
+                    Destroy(gameObject);
+                    GameState.s_Turrets.Remove(this);
+                }
+            }
+        }
     }
 
     private void Awake()
@@ -43,6 +57,10 @@ public class Turret : MonoBehaviour
     }
 
     public float CoolDown = 1f;
+    
+    public float DamageDistance = 2f;
+    public int DamageTaken = 5;
+    
     public float Timer = 0f;
     public int Health = 50;
     public Projectile Projectile;

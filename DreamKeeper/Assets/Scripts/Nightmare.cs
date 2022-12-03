@@ -17,7 +17,6 @@ public class Nightmare : MonoBehaviour
     private void Start()
     {
         Hero = GameObject.FindGameObjectWithTag("Hero");
-        Hero.GetComponent<Hero>().Nightmares.Add(this);
         TargetPosition = Hero.transform.position;
         SmoothTime = Random.Range(SmoothTimeRange.x, SmoothTimeRange.y);
         MaxVelocity = Random.Range(MaxVelocityRange.x, MaxVelocityRange.y);
@@ -48,6 +47,13 @@ public class Nightmare : MonoBehaviour
 
             case State.AttackTurret:
             {
+                if(Hero == null)
+                {
+                    Renderer.color = Color.red;
+                    Hero = GameObject.FindGameObjectWithTag("Hero");
+                    CurrentState = State.AttackHero;
+                }
+                
                 MoveAtTarget();
                 break;
             }
@@ -79,11 +85,6 @@ public class Nightmare : MonoBehaviour
             Destroy(gameObject);
             EnemyInstantiater.s_Nightmares.Remove(this);
         }
-    }
-
-    public void OnDestroy()
-    {
-        Hero.GetComponent<Hero>().Nightmares.Remove(this);
     }
 
     public int Health = 100;

@@ -98,5 +98,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CoolDown: 0.4
+  DamageDistance: 0.5
+  DamageTaken: 5
   Timer: 0
+  Health: 1000
   Projectile: {fileID: 7858064657739432355, guid: 8775198ffe58e0049b38c1d117efc107, type: 3}

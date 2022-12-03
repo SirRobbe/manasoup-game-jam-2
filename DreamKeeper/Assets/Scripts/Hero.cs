@@ -22,7 +22,7 @@ public class Hero : MonoBehaviour
 
     void CheckForCloseNightmares()
     {
-        foreach (var i in Nightmares)
+        foreach (var i in EnemyInstantiater.s_Nightmares)
         {
             if (Vector2.Distance(OwnPosition, i.transform.position)<DamageDistance)
             {
@@ -35,6 +35,5 @@ public class Hero : MonoBehaviour
     public int DamageTaken = 1;
     public float DamageDistance = 2f;
     public int DreamDepth = 100;
-    public  List<Nightmare> Nightmares = new List<Nightmare>();
     private Vector2 OwnPosition;
 }
