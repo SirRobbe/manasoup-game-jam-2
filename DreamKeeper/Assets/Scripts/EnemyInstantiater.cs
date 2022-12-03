@@ -6,15 +6,16 @@ public class EnemyInstantiater : MonoBehaviour
 {
     void Update()
     {
-        SpawnTimer -= Time.deltaTime;
-        if (SpawnTimer < 0)
+        Timer += Time.deltaTime;
+        if (Timer >= SpawnTimer)
         {
             var position = new Vector3(Random.Range(-10.0f, 10.0f),Random.Range(0f, 5f), 0 );
             Instantiate(Nightmare, position, Quaternion.identity);
-            SpawnTimer = 1f;
+            Timer = 0f;
         }
     }
     
     public float SpawnTimer = 2f;
+    public float Timer = 0f;
     public GameObject Nightmare;
 }
