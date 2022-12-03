@@ -123,63 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &245012433
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 558594891434083888, guid: 18aa698792936c54b9accc72f2e13a0a, type: 3}
-      propertyPath: m_Name
-      value: Nightmares
-      objectReference: {fileID: 0}
-    - target: {fileID: 7887153840585303396, guid: 18aa698792936c54b9accc72f2e13a0a, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7887153840585303396, guid: 18aa698792936c54b9accc72f2e13a0a, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -4.736532
-      objectReference: {fileID: 0}
-    - target: {fileID: 7887153840585303396, guid: 18aa698792936c54b9accc72f2e13a0a, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 8.475083
-      objectReference: {fileID: 0}
-    - target: {fileID: 7887153840585303396, guid: 18aa698792936c54b9accc72f2e13a0a, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7887153840585303396, guid: 18aa698792936c54b9accc72f2e13a0a, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7887153840585303396, guid: 18aa698792936c54b9accc72f2e13a0a, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7887153840585303396, guid: 18aa698792936c54b9accc72f2e13a0a, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7887153840585303396, guid: 18aa698792936c54b9accc72f2e13a0a, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7887153840585303396, guid: 18aa698792936c54b9accc72f2e13a0a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7887153840585303396, guid: 18aa698792936c54b9accc72f2e13a0a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7887153840585303396, guid: 18aa698792936c54b9accc72f2e13a0a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 18aa698792936c54b9accc72f2e13a0a, type: 3}
 --- !u!1 &842120396
 GameObject:
   m_ObjectHideFlags: 0
@@ -277,7 +220,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4439941162847799861, guid: c117d25f6ab30d845a01d39474edca80, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4439941162847799861, guid: c117d25f6ab30d845a01d39474edca80, type: 3}
       propertyPath: m_LocalPosition.x
@@ -330,7 +273,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1899614104762745050, guid: f17df93a63273074192adb140aa73bb1, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1899614104762745050, guid: f17df93a63273074192adb140aa73bb1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -375,6 +318,10 @@ PrefabInstance:
     - target: {fileID: 1899614104762745051, guid: f17df93a63273074192adb140aa73bb1, type: 3}
       propertyPath: m_Name
       value: NightmareInstantiater
+      objectReference: {fileID: 0}
+    - target: {fileID: 5280771878756075436, guid: f17df93a63273074192adb140aa73bb1, type: 3}
+      propertyPath: SpawnTimer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f17df93a63273074192adb140aa73bb1, type: 3}
