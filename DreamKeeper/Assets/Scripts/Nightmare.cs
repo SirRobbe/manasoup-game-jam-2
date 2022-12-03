@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Numerics;
 using UnityEngine;
+using Quaternion = UnityEngine.Quaternion;
 using Random = UnityEngine.Random;
 using Vector2 = UnityEngine.Vector2;
 using Vector3 = UnityEngine.Vector3;
@@ -32,6 +33,8 @@ public class Nightmare : MonoBehaviour
 
     private void Update()
     {
+        UpdateOrientation();
+
         switch (CurrentState)
         {
             case State.AttackHero:
@@ -43,7 +46,6 @@ public class Nightmare : MonoBehaviour
                     {
                         Hero = turret.gameObject;
                         CurrentState = State.AttackTurret;
-                        Renderer.color = Color.yellow;
                         break;
                     }
                 }
@@ -56,7 +58,7 @@ public class Nightmare : MonoBehaviour
             {
                 if (Hero == null)
                 {
-                    Renderer.color = Color.red;
+                    //Renderer.color = Color.red;
                     Hero = GameObject.FindGameObjectWithTag("Hero");
                     CurrentState = State.AttackHero;
                 }
@@ -83,6 +85,25 @@ public class Nightmare : MonoBehaviour
         }
     }
 
+    private void UpdateOrientation()
+    {
+        Renderer.flipX = transform.position.x < 0;
+        var toNightmare = transform.position - Hero.transform.position;
+        float angle = Vector2.Angle(Vector2.right, toNightmare);
+        if(Renderer.flipX)
+        {
+            angle += 180f;
+        }
+
+        if(CurrentState == State.Flee)
+        {
+            angle += 180;
+            Renderer.flipY = true;
+        }
+        
+        transform.rotation = Quaternion.Euler(0, 0, angle);
+    }
+    
     private void MoveAtTarget()
     {
         if(!Hero)
