@@ -63,6 +63,16 @@ public class Nightmare : MonoBehaviour
                 MoveAtTarget();
                 break;
             }
+            case State.BounceBack:
+            {
+                if(!Hero)
+                {
+                    return;
+                }
+                var heroToTarget = (transform.position - Hero.transform.position).normalized;
+                transform.position += heroToTarget * (Time.deltaTime * MaxVelocity); 
+                break;
+            }
         }
     }
 
@@ -81,6 +91,17 @@ public class Nightmare : MonoBehaviour
         Vector2 targetPosition = Hero.transform.position;
         transform.position = Vector2.SmoothDamp(transform.position, targetPosition, ref Velocity, 
                                                 SmoothTime, MaxVelocity);
+    }
+
+    private void AttackHero()
+    {
+        CurrentState = State.AttackHero;
+    }
+
+    public void BounceBack()
+    {
+        CurrentState = State.BounceBack;
+        Invoke(nameof(AttackHero), 2);
     }
     
     public void Damage(int damage)
@@ -116,5 +137,6 @@ public class Nightmare : MonoBehaviour
     {
         AttackTurret,
         AttackHero,
+        BounceBack,
     }
 }
