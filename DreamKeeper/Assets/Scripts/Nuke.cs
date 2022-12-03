@@ -6,7 +6,7 @@ public class Nuke : MonoBehaviour
 {
     private void Start()
     {
-        Nightmares = EnemyInstantiater.s_Nightmares;
+        Nightmares = GameState.s_Nightmares;
     }
 
     private void Update()

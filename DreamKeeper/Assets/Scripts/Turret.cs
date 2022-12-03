@@ -9,19 +9,19 @@ public class Turret : MonoBehaviour
 
         if(Timer >= CoolDown)
         {
-            if(EnemyInstantiater.s_Nightmares.Count > 0)
+            if(GameState.s_Nightmares.Count > 0)
             {
-                var closestNightmare = EnemyInstantiater.s_Nightmares[0];
-                var distance = Vector2.Distance(transform.position, EnemyInstantiater.s_Nightmares[0].transform.position);
+                var closestNightmare = GameState.s_Nightmares[0];
+                var distance = Vector2.Distance(transform.position, GameState.s_Nightmares[0].transform.position);
 
-                for(int i = 1; i < EnemyInstantiater.s_Nightmares.Count; i++)
+                for(int i = 1; i < GameState.s_Nightmares.Count; i++)
                 {
                     var d = Vector2.Distance(transform.position,
-                                                 EnemyInstantiater.s_Nightmares[i].transform.position);
+                                                 GameState.s_Nightmares[i].transform.position);
                     if(d < distance)
                     {
                         distance = d;
-                        closestNightmare = EnemyInstantiater.s_Nightmares[i];
+                        closestNightmare = GameState.s_Nightmares[i];
                     }
                 }
 
@@ -36,7 +36,7 @@ public class Turret : MonoBehaviour
             Timer = 0f;
         }
         
-        foreach(var nightmare in EnemyInstantiater.s_Nightmares)
+        foreach(var nightmare in GameState.s_Nightmares)
         {
             if(Vector2.Distance(transform.position, nightmare.transform.position) 
                < DamageDistance)

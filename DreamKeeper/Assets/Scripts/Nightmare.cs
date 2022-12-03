@@ -11,6 +11,7 @@ public class Nightmare : MonoBehaviour
 {
     private void Awake()
     {
+        GameState.s_Nightmares.Add(this);
         Renderer = GetComponent<SpriteRenderer>();
     }
 
@@ -121,7 +122,7 @@ public class Nightmare : MonoBehaviour
         if(Health <= 0)
         {
             Destroy(gameObject);
-            EnemyInstantiater.s_Nightmares.Remove(this);
+            GameState.s_Nightmares.Remove(this);
         }
     }
 
