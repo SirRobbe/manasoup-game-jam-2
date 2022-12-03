@@ -8,7 +8,7 @@ public class EnemyInstantiater : MonoBehaviour
         Timer += Time.deltaTime;
         if (Timer >= SpawnTimer)
         {
-            var position = new Vector3(Random.Range(-10.0f, 10.0f),Random.Range(0f, 5f), 0 );
+            var position = new Vector3(Random.Range(-20.0f, 20.0f),Random.Range(10f, 20f), 0 );
             var nightmare = Instantiate(Nightmare, position, Quaternion.identity).GetComponentInChildren<NightmareMover>();
             nightmare.Renderer.sprite = NightmareSprites[Random.Range(0, NightmareSprites.Count)];
             Timer = 0f;

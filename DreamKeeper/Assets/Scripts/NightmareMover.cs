@@ -108,6 +108,11 @@ public class NightmareMover : MonoBehaviour
         SinWave = new Vector2(Mathf.Sin(SinusWaveTime), Mathf.Cos(SinusWaveTime)) * DistanceToTarget;
         transform.position = Vector2.SmoothDamp(CurrentPosition, 
             TargetPosition + SinWave, ref Velocity, SmoothTime, MaxVelocity);
+
+        if ((Hero.transform.position.y + 1) > transform.position.y)
+        {
+            transform.position = new Vector3(transform.position.x, Hero.transform.position.y + 1, transform.position.z);
+        }
     }
 
     private void AttackHero()
@@ -134,8 +139,8 @@ public class NightmareMover : MonoBehaviour
     private Vector2 CurrentPosition;
     private Vector2 SinWave;
     private float DistanceToTarget;
-    public Vector2 SmoothTimeRange = new Vector2(1,10);
-    public Vector2 MaxVelocityRange = new Vector2(1,10);
+    public Vector2 SmoothTimeRange = new Vector2(5,7);
+    public Vector2 MaxVelocityRange = new Vector2(1,1.5f);
     private float SmoothTime;
     private float MaxVelocity;
     private Vector2 Velocity = Vector2.zero;
