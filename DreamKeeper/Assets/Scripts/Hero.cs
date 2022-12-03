@@ -22,9 +22,10 @@ public class Hero : MonoBehaviour
 
     void CheckForCloseNightmares()
     {
-        foreach (var i in GameState.s_Nightmares)
+        foreach (var nightmare in GameState.s_Nightmares)
         {
-            if (Vector2.Distance(OwnPosition, i.transform.position)<DamageDistance)
+            var nightmarePosition = nightmare.gameObject.GetComponentInChildren<NightmareMover>().transform.position;
+            if (Vector2.Distance(OwnPosition, nightmarePosition) < DamageDistance)
             {
                 DreamDepth -= DamageTaken;
             }
