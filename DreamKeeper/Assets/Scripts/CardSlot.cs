@@ -10,6 +10,11 @@ public class CardSlot : MonoBehaviour
         CardFactory = FindObjectOfType<CardFactory>();
     }
 
+    public void Deactivate()
+    {
+        gameObject.SetActive(false);
+    }
+
     public void Activate(CardType cardType)
     {
         gameObject.SetActive(true);

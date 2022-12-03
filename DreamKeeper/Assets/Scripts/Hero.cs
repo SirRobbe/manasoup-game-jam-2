@@ -5,6 +5,11 @@ using UnityEngine;
 
 public class Hero : MonoBehaviour
 {
+    void Awake()
+    {
+        GameLogic = FindObjectOfType<GameLogic>();
+    }
+    
     void Start()
     {
         OwnPosition = this.transform.position;
@@ -29,12 +34,19 @@ public class Hero : MonoBehaviour
             {
                 DreamDepth -= DamageTaken;
             }
+
+            if(DreamDepth <= 0)
+            {
+                GameLogic.End();
+            }
         }
     }
+    
     public float Tick = 1f;
     public float Timer = 0f;
     public int DamageTaken = 1;
     public float DamageDistance = 2f;
     public int DreamDepth = 100;
     private Vector2 OwnPosition;
+    private GameLogic GameLogic;
 }

@@ -18,6 +18,28 @@ public class GameLogic : MonoBehaviour
         CardSlotOne.Activate(GameState.s_SelectedCardTypes[0]);
         CardSlotTwo.Activate(GameState.s_SelectedCardTypes[1]);
     }
+
+    public void End()
+    {
+        Hero.enabled = false;
+        EnemySpawner.enabled = false;
+        Player.gameObject.SetActive(false);
+        Healthbar.gameObject.SetActive(false);
+        CardSlotOne.Deactivate();
+        CardSlotTwo.Deactivate();
+        
+        foreach (var nightmare in GameState.s_Nightmares)
+        {
+            nightmare.Damage(nightmare.Health);
+        }
+        GameState.s_Nightmares.Clear();
+        
+        foreach (var turret in GameState.s_Turrets)
+        {
+            Destroy(turret.gameObject);
+        }
+        GameState.s_Turrets.Clear();
+    }
     
     private void Start()
     {
