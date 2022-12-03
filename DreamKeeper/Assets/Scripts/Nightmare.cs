@@ -31,8 +31,8 @@ public class Nightmare : MonoBehaviour
         transform.position = Vector2.SmoothDamp(CurrentPosition, 
             TargetPosition + SinWave, ref Velocity, SmoothTime, MaxVelocity);
         Vector2 targetPosition = Hero.transform.position;
-        transform.position = Vector2.SmoothDamp(transform.position, targetPosition, ref velocity, 
-            smoothTime, maxVelocity);
+        transform.position = Vector2.SmoothDamp(transform.position, targetPosition, ref Velocity, 
+            SmoothTime, MaxVelocity);
     }
 
     public void Damage(int damage)
@@ -45,11 +45,6 @@ public class Nightmare : MonoBehaviour
     }
 
     public int Health = 100;
-    public Vector2 smoothTimeRange;
-    public Vector2 maxVelocityRange;
-    private float smoothTime;
-    private float maxVelocity;
-    private Vector2 velocity = Vector2.zero;
     private float SinusWaveStartValue;
     private float SinusWaveTime;
     private Vector3 CurrentPosition;
