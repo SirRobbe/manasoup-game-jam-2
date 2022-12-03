@@ -45,4 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpawnTimer: 2
+  Timer: 0
   Nightmare: {fileID: 558594891434083888, guid: 18aa698792936c54b9accc72f2e13a0a, type: 3}
+  NightmareSprites:
+  - {fileID: 21300000, guid: 97670b34caad4a54d9263dcd40f42859, type: 3}
+  - {fileID: 21300000, guid: 04f5b605dd94bdc4cbdb25beeafaa595, type: 3}
