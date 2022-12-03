@@ -18,8 +18,11 @@ public class CardSlot : MonoBehaviour
 
     public void OnClick()
     {
-        ACardManager.Invoke();
-        Button.interactable = false;
+        if(Mathf.Approximately(ACardManager.GetCooldown(), 0f))
+        {
+            ACardManager.Invoke();
+            Button.interactable = false;
+        }
     }
 
     private void Update()

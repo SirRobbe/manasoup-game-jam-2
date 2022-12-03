@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class GameLogic : MonoBehaviour
 {
@@ -25,6 +26,19 @@ public class GameLogic : MonoBehaviour
     {
         Hero.enabled = false;
         EnemySpawner.enabled = false;
+    }
+
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            CardSlotOne.OnClick();
+        }
+
+        if(Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            CardSlotTwo.OnClick();
+        }
     }
 
     public Hero Hero;
