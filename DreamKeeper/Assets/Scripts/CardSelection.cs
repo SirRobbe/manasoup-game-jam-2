@@ -24,6 +24,7 @@ public class CardSelection : MonoBehaviour
     public void StartGame()
     {
         gameObject.SetActive(false);
+        FindObjectOfType<GameLogic>().Begin();
     }
     
     private void Awake()
