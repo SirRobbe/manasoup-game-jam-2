@@ -4,7 +4,7 @@ public class DamageOverTime : MonoBehaviour
 {
     private void Awake()
     {
-        Target = GetComponent<Nightmare>();
+        Target = GetComponentInParent<Nightmare>();
     }
 
     private void Update()

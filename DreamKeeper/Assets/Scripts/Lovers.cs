@@ -27,7 +27,7 @@ public class Lovers : ACardManager
         }
         
         Player.IsNextProjectileFireball = true;
-        Timer = 0f;
+        Timer = Cooldown;
     }
 
     public override float GetCooldown()
