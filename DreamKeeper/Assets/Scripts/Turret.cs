@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class Turret : MonoBehaviour
 {
@@ -36,7 +37,13 @@ public class Turret : MonoBehaviour
         }
     }
 
+    private void Awake()
+    {
+        GameState.s_Turrets.Add(this);
+    }
+
     public float CoolDown = 1f;
     public float Timer = 0f;
+    public int Health = 50;
     public Projectile Projectile;
 }

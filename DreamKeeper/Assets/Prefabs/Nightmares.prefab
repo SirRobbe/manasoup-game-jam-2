@@ -99,8 +99,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 100
-  smoothTimeRange: {x: 1, y: 10}
-  maxVelocityRange: {x: 1, y: 10}
+  SmoothTimeRange: {x: 1, y: 10}
+  MaxVelocityRange: {x: 1, y: 10}
+  Renderer: {fileID: 0}
+  CurrentState: 1
+  TurretTriggerDistance: 2
 --- !u!61 &9012385231766011868
 BoxCollider2D:
   m_ObjectHideFlags: 0

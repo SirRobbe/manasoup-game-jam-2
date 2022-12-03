@@ -9,6 +9,11 @@ using Vector3 = UnityEngine.Vector3;
 
 public class Nightmare : MonoBehaviour
 {
+    private void Awake()
+    {
+        Renderer = GetComponent<SpriteRenderer>();
+    }
+
     private void Start()
     {
         Hero = GameObject.FindGameObjectWithTag("Hero");
@@ -20,6 +25,36 @@ public class Nightmare : MonoBehaviour
 
     private void Update()
     {
+        switch(CurrentState)
+        {
+            case State.AttackHero:
+            {
+                foreach(var turret in GameState.s_Turrets)
+                {
+                    float d = Vector2.Distance(transform.position, turret.transform.position); 
+                    if(d < TurretTriggerDistance && Random.Range(0, 1) < 0.5f)
+                    {
+                        Hero = turret.gameObject;
+                        CurrentState = State.AttackTurret;
+                        Renderer.color = Color.yellow;
+                        break;
+                    }
+                }
+
+                MoveAtTarget();
+                break;
+            }
+
+            case State.AttackTurret:
+            {
+                MoveAtTarget();
+                break;
+            }
+        }
+    }
+
+    private void MoveAtTarget()
+    {
         if(Hero == null)
         {
             return;
@@ -27,14 +62,14 @@ public class Nightmare : MonoBehaviour
         CurrentPosition = transform.position;
         DistanceToTarget = Vector2.Distance(CurrentPosition, TargetPosition);
         SinusWaveTime = (SinusWaveStartValue + Time.time) % 360;
-        SinWave = new Vector3(Mathf.Sin(SinusWaveTime), Mathf.Sin(SinusWaveTime), 0f) * DistanceToTarget;
+        SinWave = new Vector3(Mathf.Sin(SinusWaveTime), Mathf.Cos(SinusWaveTime), 0f) * DistanceToTarget;
         transform.position = Vector2.SmoothDamp(CurrentPosition, 
-            TargetPosition + SinWave, ref Velocity, SmoothTime, MaxVelocity);
+                                                TargetPosition + SinWave, ref Velocity, SmoothTime, MaxVelocity);
         Vector2 targetPosition = Hero.transform.position;
         transform.position = Vector2.SmoothDamp(transform.position, targetPosition, ref Velocity, 
-            SmoothTime, MaxVelocity);
+                                                SmoothTime, MaxVelocity);
     }
-
+    
     public void Damage(int damage)
     {
         Health -= damage;
@@ -58,4 +93,15 @@ public class Nightmare : MonoBehaviour
     private Vector2 Velocity = Vector2.zero;
     private Vector3 TargetPosition;
     private GameObject Hero;
+
+    [HideInInspector] public SpriteRenderer Renderer;
+    [HideInInspector] public State CurrentState = State.AttackHero;
+    
+    public float TurretTriggerDistance = 0.5f;
+    
+    public enum State
+    {
+        AttackTurret,
+        AttackHero,
+    }
 }
