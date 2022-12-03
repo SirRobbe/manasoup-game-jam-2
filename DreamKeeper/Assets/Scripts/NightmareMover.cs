@@ -109,9 +109,9 @@ public class NightmareMover : MonoBehaviour
         transform.position = Vector2.SmoothDamp(CurrentPosition, 
             TargetPosition + SinWave, ref Velocity, SmoothTime, MaxVelocity);
 
-        if ((Hero.transform.position.y + 1) > transform.position.y)
+        if ((TargetPosition.y + Offset) > transform.position.y)
         {
-            transform.position = new Vector3(transform.position.x, Hero.transform.position.y + 1, transform.position.z);
+            Velocity = -2*Velocity;
         }
     }
 
@@ -133,7 +133,8 @@ public class NightmareMover : MonoBehaviour
         transform.position = Vector2.SmoothDamp(CurrentPosition, 
             CurrentPosition + FleeTarget, ref Velocity, SmoothTime, MaxVelocity);
     }
-    
+
+    private float Offset = 0.5f;
     private float SinusWaveStartValue;
     private float SinusWaveTime;
     private Vector2 CurrentPosition;
