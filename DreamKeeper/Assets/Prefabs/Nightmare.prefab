@@ -156,7 +156,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 558594891434083888, guid: 18aa698792936c54b9accc72f2e13a0a, type: 3}
       propertyPath: m_Name
-      value: Nightmares
+      value: NightmareBody
       objectReference: {fileID: 0}
     - target: {fileID: 5731485447756348194, guid: 18aa698792936c54b9accc72f2e13a0a, type: 3}
       propertyPath: m_SortingOrder

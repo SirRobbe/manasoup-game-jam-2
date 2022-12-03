@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 9012385231766011868}
   - component: {fileID: 2093093768230070401}
   m_Layer: 0
-  m_Name: Nightmares
+  m_Name: NightmareBody
   m_TagString: Nightmare
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
