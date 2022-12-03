@@ -31,14 +31,14 @@ public class Nightmare : MonoBehaviour
 
     private void Update()
     {
-        switch(CurrentState)
+        switch (CurrentState)
         {
             case State.AttackHero:
             {
-                foreach(var turret in GameState.s_Turrets)
+                foreach (var turret in GameState.s_Turrets)
                 {
-                    float d = Vector2.Distance(transform.position, turret.transform.position); 
-                    if(d < TurretTriggerDistance && Random.Range(0, 1) < 0.5f)
+                    float d = Vector2.Distance(transform.position, turret.transform.position);
+                    if (d < TurretTriggerDistance && Random.Range(0, 1) < 0.5f)
                     {
                         Hero = turret.gameObject;
                         CurrentState = State.AttackTurret;
@@ -53,24 +53,27 @@ public class Nightmare : MonoBehaviour
 
             case State.AttackTurret:
             {
-                if(Hero == null)
+                if (Hero == null)
                 {
                     Renderer.color = Color.red;
                     Hero = GameObject.FindGameObjectWithTag("Hero");
                     CurrentState = State.AttackHero;
                 }
-                
+
                 MoveAtTarget();
                 break;
             }
             case State.BounceBack:
             {
-                if(!Hero)
+                if (!Hero)
                 {
                     return;
                 }
+
                 var heroToTarget = (transform.position - Hero.transform.position).normalized;
-                transform.position += heroToTarget * (Time.deltaTime * MaxVelocity); 
+                transform.position += heroToTarget * (Time.deltaTime * MaxVelocity);
+                break;
+            }
             case State.Flee:
             {
                 Flee();
