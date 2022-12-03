@@ -20,12 +20,12 @@ public class Nightmare : MonoBehaviour
         MaxVelocity = Random.Range(MaxVelocityRange.x, MaxVelocityRange.y);
         SinusWaveStartValue = Random.value;
         
+        Hero = GameObject.FindGameObjectWithTag("Hero");
         if(!Hero)
         {
             return;
         }
         
-        Hero = GameObject.FindGameObjectWithTag("Hero");
         TargetPosition = Hero.transform.position;
     }
 
