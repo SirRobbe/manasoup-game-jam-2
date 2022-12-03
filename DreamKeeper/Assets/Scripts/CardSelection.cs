@@ -3,17 +3,26 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+public enum CardType
+{
+    Tower,
+    Death,
+    Emperor,
+    Lovers,
+    HangedMan,
+}
+
 public class CardSelection : MonoBehaviour
 {
-    public void SelectCard(GameObject card)
+    public void SelectCard(CardSelectionButton button)
     {
-        if(SelectedCards.Contains(card))
+        if(SelectedCards.Contains(button.CardType))
         {
-            SelectedCards.Remove(card);
+            SelectedCards.Remove(button.CardType);
         }
-        else
+        else if (SelectedCards.Count < 2)
         {
-            SelectedCards.Add(card);
+            SelectedCards.Add(button.CardType);
         }
         
         UpdateSelectedCardsText();
@@ -24,6 +33,7 @@ public class CardSelection : MonoBehaviour
     public void StartGame()
     {
         gameObject.SetActive(false);
+        GameState.s_SelectedCardTypes = SelectedCards;
         FindObjectOfType<GameLogic>().Begin();
     }
     
@@ -42,6 +52,6 @@ public class CardSelection : MonoBehaviour
 
     public Button DreamButton;
     
-    [HideInInspector] public List<GameObject> SelectedCards = new List<GameObject>();
+    [HideInInspector] public List<CardType> SelectedCards = new List<CardType>();
     public int CardsToSelect = 2;
 }

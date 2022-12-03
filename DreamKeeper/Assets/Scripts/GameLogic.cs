@@ -6,6 +6,8 @@ public class GameLogic : MonoBehaviour
     {
         Hero.enabled = true;
         EnemySpawner.enabled = true;
+        CardSlotOne.Activate(GameState.s_SelectedCardTypes[0]);
+        CardSlotTwo.Activate(GameState.s_SelectedCardTypes[1]);
     }
     
     private void Start()
@@ -21,4 +23,6 @@ public class GameLogic : MonoBehaviour
 
     public Hero Hero;
     public EnemyInstantiater EnemySpawner;
+    public CardSlot CardSlotOne;
+    public CardSlot CardSlotTwo;
 }

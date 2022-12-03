@@ -1,7 +1,16 @@
 ﻿using UnityEngine;
 
-public class BarrierManager : MonoBehaviour
+public class BarrierManager : ACardManager
 {
+    public void Awake()
+    {
+        Hero = FindObjectOfType<Hero>();
+        if(!Hero)
+        {
+            Debug.LogError("Hero not found");
+        }
+    }
+    
     public void Update()
     {
         CooldownTimer -= Time.deltaTime;
@@ -13,7 +22,7 @@ public class BarrierManager : MonoBehaviour
         }
     }
 
-    public void Invoke()
+    public override void Invoke()
     {
         if(!BarrierPrefab || !Hero || CooldownTimer > 0)
         {
@@ -24,6 +33,11 @@ public class BarrierManager : MonoBehaviour
         DurationTimer = Duration;
 
         BarrierInstance = Instantiate(BarrierPrefab, Hero.transform.position, Quaternion.identity);
+    }
+
+    public override float GetCooldown()
+    {
+        return CooldownTimer;
     }
 
     public Barrier BarrierPrefab;
