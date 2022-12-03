@@ -19,7 +19,11 @@ public class Projectile : MonoBehaviour
         if(collider.CompareTag(TargetTag))
         {
             var nightmare = collider.GetComponent<Nightmare>();
-            nightmare.Damage(Damage);
+            var nightmareKilled = nightmare.Damage(Damage);
+            if(nightmareKilled)
+            {
+                GameState.s_Nightmares.Remove(nightmare);
+            }
             Destroy(gameObject);
         }
     }

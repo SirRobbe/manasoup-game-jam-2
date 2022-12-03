@@ -23,11 +23,13 @@ public class Nuke : ACardManager
         }
         
         Timer = CoolDown;
-        
+
         for(int i = 0; i< Nightmares.Count; i++)
         {
             Nightmares[i].Damage(Nightmares[i].Health);
         }
+        
+        Nightmares.Clear();
     }
 
     public override void Invoke()

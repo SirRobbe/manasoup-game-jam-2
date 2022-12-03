@@ -12,7 +12,11 @@ public class DamageOverTime : MonoBehaviour
         SecondTimer += Time.deltaTime;
         if(SecondTimer >= 1f)
         {
-            Target.Damage(Damage);
+            var targetKilled = Target.Damage(Damage);
+            if(targetKilled)
+            {
+                GameState.s_Nightmares.Remove(Target);
+            }
             SecondTimer = 0f;
         }
         

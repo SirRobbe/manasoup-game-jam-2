@@ -44,5 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a99ec447329a4810b0949fbb72296dcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Cooldown: 5
+  Nightmares: []
+  CoolDown: 10
   Timer: 0

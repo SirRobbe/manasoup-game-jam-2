@@ -87,6 +87,10 @@ public class Nightmare : MonoBehaviour
 
     private void UpdateOrientation()
     {
+        if(!Hero)
+        {
+            return;
+        }
         Renderer.flipX = transform.position.x < 0;
         var toNightmare = transform.position - Hero.transform.position;
         float angle = Vector2.Angle(Vector2.right, toNightmare);
@@ -137,14 +141,15 @@ public class Nightmare : MonoBehaviour
             CurrentPosition + FleeTarget, ref Velocity, SmoothTime, MaxVelocity);
     }
 
-    public void Damage(int damage)
+    public bool Damage(int damage)
     {
         Health -= damage;
         if(Health <= 0)
         {
             Destroy(gameObject);
-            GameState.s_Nightmares.Remove(this);
         }
+
+        return Health <= 0;
     }
 
     public int Health = 100;
