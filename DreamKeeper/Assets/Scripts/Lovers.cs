@@ -38,6 +38,7 @@ public class Lovers : ACardManager
     private void Awake()
     {
         Timer = 0f;
+        Player = GameObject.FindObjectOfType<Player>();
     }
 
     public float Duration = 2f;
