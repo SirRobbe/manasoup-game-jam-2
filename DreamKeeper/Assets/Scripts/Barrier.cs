@@ -7,7 +7,7 @@ public class Barrier : MonoBehaviour
     {
         if(col.CompareTag("Nightmare"))
         {
-            var nightmare = col.GetComponent<Nightmare>();
+            var nightmare = col.GetComponent<Nightmare>().GetComponentInChildren<NightmareMover>();
             nightmare.BounceBack();
         }
     }

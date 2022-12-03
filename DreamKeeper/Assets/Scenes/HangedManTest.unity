@@ -641,9 +641,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2032995087929206741}
+      - m_Target: {fileID: 2032995087929206742}
         m_TargetAssemblyTypeName: HangedMan, Assembly-CSharp
-        m_MethodName: Do
+        m_MethodName: Invoke
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -810,30 +810,28 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2772697135145967810, guid: d9f9b23ca2a229047ae1208b2a1035bc, type: 3}
+      propertyPath: CoolDown
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2772697135145967810, guid: d9f9b23ca2a229047ae1208b2a1035bc, type: 3}
+      propertyPath: Duration
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4558361376503225114, guid: d9f9b23ca2a229047ae1208b2a1035bc, type: 3}
       propertyPath: m_Name
       value: HangedMan
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9f9b23ca2a229047ae1208b2a1035bc, type: 3}
---- !u!1 &2032995087929206740 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4558361376503225114, guid: d9f9b23ca2a229047ae1208b2a1035bc, type: 3}
+--- !u!114 &2032995087929206742 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2772697135145967810, guid: d9f9b23ca2a229047ae1208b2a1035bc, type: 3}
   m_PrefabInstance: {fileID: 2032995087929206739}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2032995087929206741
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2032995087929206740}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a421d0cd637d57b49b9861498d52dae5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Nightmares: []
-  Cooldown: 2
-  Duration: 5
-  Timer: 0

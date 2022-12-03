@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class HangedMan : ACardManager
 {
+    private void Start()
+    {
+        Nightmares = GameState.s_Nightmares;
+    }
     private void Update()
     {
         Timer -= Time.deltaTime;
@@ -12,11 +16,14 @@ public class HangedMan : ACardManager
 
     IEnumerator ActivateEffect()
     {
-        for(int i = 0; i< GameState.s_Nightmares.Count; i++)
+        foreach (var nightmare in Nightmares)
         {
-            GameState.s_Nightmares[i].CurrentState = Nightmare.State.Flee;
-            yield return new WaitForSeconds(Duration);
-            GameState.s_Nightmares[i].CurrentState = Nightmare.State.AttackHero;
+            nightmare.GetComponentInChildren<NightmareMover>().CurrentState = NightmareMover.State.Flee;
+        }
+        yield return new WaitForSeconds(Duration);
+        foreach(var nightmare in Nightmares)
+        {
+            nightmare.GetComponentInChildren<NightmareMover>().CurrentState = NightmareMover.State.AttackHero;
         }
     }
 
@@ -39,5 +46,6 @@ public class HangedMan : ACardManager
     public float CoolDown = 15f;
     public float Duration = 5f;
     [HideInInspector] public float Timer = 0f;
-    
+    public List<Nightmare> Nightmares;
+
 }
