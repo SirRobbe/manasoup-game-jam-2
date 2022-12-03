@@ -16,11 +16,17 @@ public class Nightmare : MonoBehaviour
 
     private void Start()
     {
-        Hero = GameObject.FindGameObjectWithTag("Hero");
-        TargetPosition = Hero.transform.position;
         SmoothTime = Random.Range(SmoothTimeRange.x, SmoothTimeRange.y);
         MaxVelocity = Random.Range(MaxVelocityRange.x, MaxVelocityRange.y);
         SinusWaveStartValue = Random.value;
+        
+        if(!Hero)
+        {
+            return;
+        }
+        
+        Hero = GameObject.FindGameObjectWithTag("Hero");
+        TargetPosition = Hero.transform.position;
     }
 
     private void Update()
@@ -62,7 +68,7 @@ public class Nightmare : MonoBehaviour
 
     private void MoveAtTarget()
     {
-        if(Hero == null)
+        if(!Hero)
         {
             return;
         }
