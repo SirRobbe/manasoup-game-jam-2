@@ -41,6 +41,7 @@ public class Nightmare : MonoBehaviour
         if(Health <= 0)
         {
             Destroy(gameObject);
+            EnemyInstantiater.s_Nightmares.Remove(this);
         }
     }
 

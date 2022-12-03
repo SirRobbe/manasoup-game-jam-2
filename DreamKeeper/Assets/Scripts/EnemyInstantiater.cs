@@ -10,10 +10,13 @@ public class EnemyInstantiater : MonoBehaviour
         if (Timer >= SpawnTimer)
         {
             var position = new Vector3(Random.Range(-10.0f, 10.0f),Random.Range(0f, 5f), 0 );
-            Instantiate(Nightmare, position, Quaternion.identity);
-            Timer = 0f;
+            var nightmare = Instantiate(Nightmare, position, Quaternion.identity);
+            s_Nightmares.Add(nightmare.GetComponent<Nightmare>());
+            SpawnTimer = 1f;
         }
     }
+
+    public static List<Nightmare> s_Nightmares = new List<Nightmare>();
     
     public float SpawnTimer = 2f;
     public float Timer = 0f;
