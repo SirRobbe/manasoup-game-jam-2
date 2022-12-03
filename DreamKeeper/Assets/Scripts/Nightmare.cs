@@ -71,6 +71,9 @@ public class Nightmare : MonoBehaviour
                 }
                 var heroToTarget = (transform.position - Hero.transform.position).normalized;
                 transform.position += heroToTarget * (Time.deltaTime * MaxVelocity); 
+            case State.Flee:
+            {
+                Flee();
                 break;
             }
         }
@@ -85,12 +88,9 @@ public class Nightmare : MonoBehaviour
         CurrentPosition = transform.position;
         DistanceToTarget = Vector2.Distance(CurrentPosition, TargetPosition);
         SinusWaveTime = (SinusWaveStartValue + Time.time) % 360;
-        SinWave = new Vector3(Mathf.Sin(SinusWaveTime), Mathf.Cos(SinusWaveTime), 0f) * DistanceToTarget;
+        SinWave = new Vector2(Mathf.Sin(SinusWaveTime), Mathf.Cos(SinusWaveTime)) * DistanceToTarget;
         transform.position = Vector2.SmoothDamp(CurrentPosition, 
-                                                TargetPosition + SinWave, ref Velocity, SmoothTime, MaxVelocity);
-        Vector2 targetPosition = Hero.transform.position;
-        transform.position = Vector2.SmoothDamp(transform.position, targetPosition, ref Velocity, 
-                                                SmoothTime, MaxVelocity);
+            TargetPosition + SinWave, ref Velocity, SmoothTime, MaxVelocity);
     }
 
     private void AttackHero()
@@ -104,6 +104,14 @@ public class Nightmare : MonoBehaviour
         Invoke(nameof(AttackHero), 2);
     }
     
+    private void Flee()
+    {
+        CurrentPosition = transform.position;
+        Vector2 FleeTarget = (CurrentPosition - TargetPosition) * 10f;
+        transform.position = Vector2.SmoothDamp(CurrentPosition, 
+            CurrentPosition + FleeTarget, ref Velocity, SmoothTime, MaxVelocity);
+    }
+
     public void Damage(int damage)
     {
         Health -= damage;
@@ -117,15 +125,15 @@ public class Nightmare : MonoBehaviour
     public int Health = 100;
     private float SinusWaveStartValue;
     private float SinusWaveTime;
-    private Vector3 CurrentPosition;
-    private Vector3 SinWave;
+    private Vector2 CurrentPosition;
+    private Vector2 SinWave;
     private float DistanceToTarget;
     public Vector2 SmoothTimeRange = new Vector2(1,10);
     public Vector2 MaxVelocityRange = new Vector2(1,10);
     private float SmoothTime;
     private float MaxVelocity;
     private Vector2 Velocity = Vector2.zero;
-    private Vector3 TargetPosition;
+    private Vector2 TargetPosition;
     private GameObject Hero;
 
     [HideInInspector] public SpriteRenderer Renderer;
@@ -138,5 +146,6 @@ public class Nightmare : MonoBehaviour
         AttackTurret,
         AttackHero,
         BounceBack,
+        Flee
     }
 }

@@ -1,27 +1,35 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections.Generic;
+using UnityEngine;
 
 public class Nuke : MonoBehaviour
 {
-    private void Update()
+    private void Start()
     {
-        Timer -= Time.deltaTime;
+        Nightmares = EnemyInstantiater.s_Nightmares;
     }
 
-    public void Invoke()
+    private void Update()
     {
-        if(Timer > 0)
+        Timer += Time.deltaTime;
+    }
+
+    public void NukeNightmares()
+    {
+        if(Timer >= CoolDown)
         {
             return;
         }
         
-        Timer = Cooldown;
+        Timer = CoolDown;
         
-        foreach (var nightmare in EnemyInstantiater.s_Nightmares)
+        for (int i = 0; i< Nightmares.Count; i++)
         {
-            Destroy(nightmare.gameObject);
+            Nightmares[i].Damage(Nightmares[i].Health);
         }
     }
 
-    public float Cooldown = 60f;
+    public List<Nightmare> Nightmares;
+    public float CoolDown = 60f;
     [HideInInspector] public float Timer = 0f;
 }

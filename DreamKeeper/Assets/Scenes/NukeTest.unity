@@ -304,7 +304,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 217331638}
         m_TargetAssemblyTypeName: Nuke, Assembly-CSharp
-        m_MethodName: Invoke
+        m_MethodName: NukeNightmares
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
