@@ -1,44 +1,43 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HangedMan : MonoBehaviour
+public class HangedMan : ACardManager
 {
-    private void Start()
-    {
-        Nightmares = GameState.s_Nightmares;
-    }
     private void Update()
     {
-        Timer += Time.deltaTime;
+        Timer -= Time.deltaTime;
+        Timer = Mathf.Clamp(Timer, 0, CoolDown);
     }
 
-    public void Do()
+    IEnumerator ActivateEffect()
     {
-        if(Timer >= CoolDown)
+        for(int i = 0; i< GameState.s_Nightmares.Count; i++)
+        {
+            GameState.s_Nightmares[i].CurrentState = Nightmare.State.Flee;
+            yield return new WaitForSeconds(Duration);
+            GameState.s_Nightmares[i].CurrentState = Nightmare.State.AttackHero;
+        }
+    }
+
+    public override void Invoke()
+    {
+        if(Timer > 0f)
         {
             return;
         }
-        
+
         Timer = CoolDown;
-        
         StartCoroutine(ActivateEffect());
     }
-    
-    IEnumerator ActivateEffect()
+
+    public override float GetCooldown()
     {
-        for(int i = 0; i< Nightmares.Count; i++)
-        {
-            Nightmares[i].CurrentState = Nightmare.State.Flee;
-
-            yield return new WaitForSeconds(Duration);
-
-            Nightmares[i].CurrentState = Nightmare.State.AttackHero;
-        }
+        return Timer;
     }
-    public List<Nightmare> Nightmares;
+    
     public float CoolDown = 15f;
     public float Duration = 5f;
     [HideInInspector] public float Timer = 0f;
+    
 }

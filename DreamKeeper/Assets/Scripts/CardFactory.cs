@@ -6,9 +6,30 @@ public class CardFactory : MonoBehaviour
     {
         switch (cardType)
         {
+
+            case CardType.Death:
+            {
+                return Instantiate(DeathPrefab);
+            }
+
+            case CardType.Lovers:
+            {
+                return Instantiate(LoversPrefab);
+            }
+
+            case CardType.HangedMan:
+            {
+                return Instantiate(HangedManPrefab);
+            }
+            
             case CardType.Emperor:
             {
                 return Instantiate(BarrierManagerPrefab);
+            }
+
+            case CardType.Tower:
+            {
+                return Instantiate(TurretSpawnerPrefab);
             }
         }
         
@@ -17,4 +38,8 @@ public class CardFactory : MonoBehaviour
     }
 
     public BarrierManager BarrierManagerPrefab;
+    public TurretSpawner TurretSpawnerPrefab;
+    public Nuke DeathPrefab;
+    public Lovers LoversPrefab;
+    public HangedMan HangedManPrefab;
 }

@@ -1,32 +1,43 @@
 using UnityEngine;
 
-public class Lovers : MonoBehaviour
+public class Lovers : ACardManager
 {
     private void Update()
     {
-        Timer += Time.deltaTime;
-        
-        if(Input.GetKeyDown(KeyCode.Alpha1) && Timer > Cooldown)
-        {
-            foreach(var nightmare in GameState.s_Nightmares)
-            {
-                float distance = Vector2.Distance(nightmare.transform.position, Player.transform.position);
-                if(distance <= Range)
-                {
-                    var dod = nightmare.gameObject.AddComponent<DamageOverTime>();
-                    dod.Duration = Duration;
-                    dod.Damage = Damage;
-                }
-            }
-            
-            Player.IsNextProjectileFireball = true;
-            Timer = 0f;
-        }
+        Timer -= Time.deltaTime;
+        Timer = Mathf.Clamp(Timer, 0, Cooldown);
     }
 
+    public override void Invoke()
+    {
+        if(Timer > 0f)
+        {
+            return;
+        }
+        
+        foreach(var nightmare in GameState.s_Nightmares)
+        {
+            float distance = Vector2.Distance(nightmare.transform.position, Player.transform.position);
+            if(distance <= Range)
+            {
+                var dod = nightmare.gameObject.AddComponent<DamageOverTime>();
+                dod.Duration = Duration;
+                dod.Damage = Damage;
+            }
+        }
+        
+        Player.IsNextProjectileFireball = true;
+        Timer = 0f;
+    }
+
+    public override float GetCooldown()
+    {
+        return Timer;
+    }
+    
     private void Awake()
     {
-        Timer = Cooldown;
+        Timer = 0f;
     }
 
     public float Duration = 2f;
@@ -35,4 +46,5 @@ public class Lovers : MonoBehaviour
     public float Cooldown = 5f;
     [HideInInspector] public float Timer = 0f;
     public Player Player;
+    
 }

@@ -14,6 +14,7 @@ public class BarrierManager : ACardManager
     public void Update()
     {
         CooldownTimer -= Time.deltaTime;
+        CooldownTimer = Mathf.Clamp(Cooldown, 0f, Cooldown);
         DurationTimer -= Time.deltaTime;
 
         if(DurationTimer <= 0 && BarrierInstance)

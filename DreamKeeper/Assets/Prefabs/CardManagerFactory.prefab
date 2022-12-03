@@ -45,3 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BarrierManagerPrefab: {fileID: 346159010939237735, guid: bcfa4668adaab5a4f99d902cb4336fce, type: 3}
+  TurretSpawnerPrefab: {fileID: 284180393741723747, guid: bbfc42afabcac274284524418c5d211d, type: 3}
+  DeathPrefab: {fileID: 7460299020656975559, guid: 19c73438872b13b4198f1ed6b621b99d, type: 3}
+  LoversPrefab: {fileID: 6785980136534915204, guid: 1fffddd2f5504b342863b98773819e44, type: 3}
+  HangedManPrefab: {fileID: 2772697135145967810, guid: d9f9b23ca2a229047ae1208b2a1035bc, type: 3}
