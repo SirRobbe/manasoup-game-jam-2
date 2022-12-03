@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2583093238188995994}
   - component: {fileID: 4804378814871035852}
   m_Layer: 0
-  m_Name: Cone2
+  m_Name: Cone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: f196150e2fca46e4e85423c13c479ce2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 783fab5907d787245908d0f46aa42382, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
