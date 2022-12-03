@@ -49,4 +49,5 @@ MonoBehaviour:
   Nightmare: {fileID: 3246719476862315480, guid: b1494b6919ad1254095e04ac1249215d, type: 3}
   NightmareSprites:
   - {fileID: 21300000, guid: 97670b34caad4a54d9263dcd40f42859, type: 3}
-  - {fileID: 21300000, guid: 04f5b605dd94bdc4cbdb25beeafaa595, type: 3}
+  - {fileID: 21300000, guid: ceaf978b558a93a47ab530052360b33b, type: 3}
+  - {fileID: 21300000, guid: 625f933cc9dfe6045afe13674cfe5c87, type: 3}

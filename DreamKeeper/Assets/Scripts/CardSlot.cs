@@ -14,6 +14,7 @@ public class CardSlot : MonoBehaviour
     {
         gameObject.SetActive(true);
         ACardManager = CardFactory.GetCard(cardType);
+        GetComponent<Image>().sprite = CardFactory.GetLowResSprite(cardType);
     }
 
     public void OnClick()

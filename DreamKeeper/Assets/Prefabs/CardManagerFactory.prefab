@@ -49,3 +49,8 @@ MonoBehaviour:
   DeathPrefab: {fileID: 7460299020656975559, guid: 19c73438872b13b4198f1ed6b621b99d, type: 3}
   LoversPrefab: {fileID: 6785980136534915204, guid: 1fffddd2f5504b342863b98773819e44, type: 3}
   HangedManPrefab: {fileID: 2772697135145967810, guid: d9f9b23ca2a229047ae1208b2a1035bc, type: 3}
+  DeathSprite: {fileID: 21300000, guid: 154b3fc58a802414b8e892658063ad46, type: 3}
+  LoverSprite: {fileID: 21300000, guid: a035d4e0b6812b04ca5dae91005afe8e, type: 3}
+  EmperorSprite: {fileID: 21300000, guid: 06c729d9c25b1814a97c56fd25200768, type: 3}
+  TowerSprite: {fileID: 21300000, guid: f017534be29399748b8bc93ef7e4f5ea, type: 3}
+  HangedManSprite: {fileID: 21300000, guid: fb1034a33f5d81c4798bb1dba02a358e, type: 3}
