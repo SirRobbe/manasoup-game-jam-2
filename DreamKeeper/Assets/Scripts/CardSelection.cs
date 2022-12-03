@@ -19,10 +19,12 @@ public class CardSelection : MonoBehaviour
         if(SelectedCards.Contains(button.CardType))
         {
             SelectedCards.Remove(button.CardType);
+            button.transform.GetChild(1).gameObject.SetActive(false);
         }
         else if (SelectedCards.Count < 2)
         {
             SelectedCards.Add(button.CardType);
+            button.transform.GetChild(1).gameObject.SetActive(true);
         }
         
         UpdateSelectedCardsText();
