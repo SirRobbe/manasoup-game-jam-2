@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Numerics;
 using UnityEngine;
+using Quaternion = UnityEngine.Quaternion;
 using Random = UnityEngine.Random;
 using Vector2 = UnityEngine.Vector2;
 using Vector3 = UnityEngine.Vector3;
@@ -11,6 +12,7 @@ public class Nightmare : MonoBehaviour
 {
     private void Awake()
     {
+        GameState.s_Nightmares.Add(this);
         Renderer = GetComponent<SpriteRenderer>();
     }
 
@@ -31,18 +33,19 @@ public class Nightmare : MonoBehaviour
 
     private void Update()
     {
-        switch(CurrentState)
+        UpdateOrientation();
+
+        switch (CurrentState)
         {
             case State.AttackHero:
             {
-                foreach(var turret in GameState.s_Turrets)
+                foreach (var turret in GameState.s_Turrets)
                 {
-                    float d = Vector2.Distance(transform.position, turret.transform.position); 
-                    if(d < TurretTriggerDistance && Random.Range(0, 1) < 0.5f)
+                    float d = Vector2.Distance(transform.position, turret.transform.position);
+                    if (d < TurretTriggerDistance && Random.Range(0, 1) < 0.5f)
                     {
                         Hero = turret.gameObject;
                         CurrentState = State.AttackTurret;
-                        Renderer.color = Color.yellow;
                         break;
                     }
                 }
@@ -53,29 +56,54 @@ public class Nightmare : MonoBehaviour
 
             case State.AttackTurret:
             {
-                if(Hero == null)
+                if (Hero == null)
                 {
-                    Renderer.color = Color.red;
+                    //Renderer.color = Color.red;
                     Hero = GameObject.FindGameObjectWithTag("Hero");
                     CurrentState = State.AttackHero;
                 }
-                
+
                 MoveAtTarget();
                 break;
             }
             case State.BounceBack:
             {
-                if(!Hero)
+                if (!Hero)
                 {
                     return;
                 }
+
                 var heroToTarget = (transform.position - Hero.transform.position).normalized;
-                transform.position += heroToTarget * (Time.deltaTime * MaxVelocity); 
+                transform.position += heroToTarget * (Time.deltaTime * MaxVelocity);
+                break;
+            }
+            case State.Flee:
+            {
+                Flee();
                 break;
             }
         }
     }
 
+    private void UpdateOrientation()
+    {
+        Renderer.flipX = transform.position.x < 0;
+        var toNightmare = transform.position - Hero.transform.position;
+        float angle = Vector2.Angle(Vector2.right, toNightmare);
+        if(Renderer.flipX)
+        {
+            angle += 180f;
+        }
+
+        if(CurrentState == State.Flee)
+        {
+            angle += 180;
+            Renderer.flipY = true;
+        }
+        
+        transform.rotation = Quaternion.Euler(0, 0, angle);
+    }
+    
     private void MoveAtTarget()
     {
         if(!Hero)
@@ -85,12 +113,9 @@ public class Nightmare : MonoBehaviour
         CurrentPosition = transform.position;
         DistanceToTarget = Vector2.Distance(CurrentPosition, TargetPosition);
         SinusWaveTime = (SinusWaveStartValue + Time.time) % 360;
-        SinWave = new Vector3(Mathf.Sin(SinusWaveTime), Mathf.Cos(SinusWaveTime), 0f) * DistanceToTarget;
+        SinWave = new Vector2(Mathf.Sin(SinusWaveTime), Mathf.Cos(SinusWaveTime)) * DistanceToTarget;
         transform.position = Vector2.SmoothDamp(CurrentPosition, 
-                                                TargetPosition + SinWave, ref Velocity, SmoothTime, MaxVelocity);
-        Vector2 targetPosition = Hero.transform.position;
-        transform.position = Vector2.SmoothDamp(transform.position, targetPosition, ref Velocity, 
-                                                SmoothTime, MaxVelocity);
+            TargetPosition + SinWave, ref Velocity, SmoothTime, MaxVelocity);
     }
 
     private void AttackHero()
@@ -104,28 +129,36 @@ public class Nightmare : MonoBehaviour
         Invoke(nameof(AttackHero), 2);
     }
     
+    private void Flee()
+    {
+        CurrentPosition = transform.position;
+        Vector2 FleeTarget = (CurrentPosition - TargetPosition) * 10f;
+        transform.position = Vector2.SmoothDamp(CurrentPosition, 
+            CurrentPosition + FleeTarget, ref Velocity, SmoothTime, MaxVelocity);
+    }
+
     public void Damage(int damage)
     {
         Health -= damage;
         if(Health <= 0)
         {
             Destroy(gameObject);
-            EnemyInstantiater.s_Nightmares.Remove(this);
+            GameState.s_Nightmares.Remove(this);
         }
     }
 
     public int Health = 100;
     private float SinusWaveStartValue;
     private float SinusWaveTime;
-    private Vector3 CurrentPosition;
-    private Vector3 SinWave;
+    private Vector2 CurrentPosition;
+    private Vector2 SinWave;
     private float DistanceToTarget;
     public Vector2 SmoothTimeRange = new Vector2(1,10);
     public Vector2 MaxVelocityRange = new Vector2(1,10);
     private float SmoothTime;
     private float MaxVelocity;
     private Vector2 Velocity = Vector2.zero;
-    private Vector3 TargetPosition;
+    private Vector2 TargetPosition;
     private GameObject Hero;
 
     [HideInInspector] public SpriteRenderer Renderer;
@@ -138,5 +171,6 @@ public class Nightmare : MonoBehaviour
         AttackTurret,
         AttackHero,
         BounceBack,
+        Flee
     }
 }
