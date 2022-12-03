@@ -98,6 +98,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 5
-  Cooldown: 0.25
+  Cooldown: 0.15
   Timer: 0
   Projectile: {fileID: 4453546429488636445, guid: bc6217e639d5f834d85c8a78116847c4, type: 3}

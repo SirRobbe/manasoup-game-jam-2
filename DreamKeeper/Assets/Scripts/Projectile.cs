@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
@@ -10,11 +11,29 @@ public class Projectile : MonoBehaviour
             Destroy(gameObject);
         }
 
-        var movement = new Vector3(Direction.x, Direction.y) * (Time.deltaTime * Speed);
-        transform.position += movement;
+        var movement = Direction * (Time.deltaTime * Speed);
+        Rigidbody.MovePosition(Rigidbody.position + movement);
     }
 
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        if(collider.CompareTag(TargetTag))
+        {
+            var nightmare = collider.GetComponent<Nightmare>();
+            nightmare.Damage(Damage);
+            Destroy(gameObject);
+        }
+    }
+
+    private void Awake()
+    {
+        Rigidbody = GetComponent<Rigidbody2D>();
+    }
+
+    public string TargetTag = "";
+    public int Damage = 25;
     public float LifeTime = 1f;
     public float Speed = 20f;
     [HideInInspector] public Vector2 Direction;
+    [HideInInspector] public Rigidbody2D Rigidbody;
 }

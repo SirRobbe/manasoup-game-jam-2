@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -13,13 +10,28 @@ public class Nightmare : MonoBehaviour
         maxVelocity = Random.Range(maxVelocityRange.x, maxVelocityRange.y);
     }
 
-    void Update()
+    private void Update()
     {
+        if(Hero == null)
+        {
+            return;
+        }
+        
         Vector2 targetPosition = Hero.transform.position;
         transform.position = Vector2.SmoothDamp(transform.position, targetPosition, ref velocity, 
             smoothTime, maxVelocity);
     }
 
+    public void Damage(int damage)
+    {
+        Health -= damage;
+        if(Health <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    public int Health = 100;
     public Vector2 smoothTimeRange;
     public Vector2 maxVelocityRange;
     private float smoothTime;
