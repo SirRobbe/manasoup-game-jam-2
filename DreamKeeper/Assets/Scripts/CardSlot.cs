@@ -16,7 +16,6 @@ public class CardSlot : MonoBehaviour
 
     public void OnClick()
     {
-        Debug.Log("Clicked");
         ACardManager.Invoke();
     }
 
