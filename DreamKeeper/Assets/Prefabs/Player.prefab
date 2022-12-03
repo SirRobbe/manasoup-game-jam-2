@@ -100,4 +100,6 @@ MonoBehaviour:
   Speed: 5
   Cooldown: 0.15
   Timer: 0
-  Projectile: {fileID: 4453546429488636445, guid: bc6217e639d5f834d85c8a78116847c4, type: 3}
+  IsNextProjectileFireball: 0
+  Projectile: {fileID: 7297868178592318106, guid: 1d78cbde1affb514f97976c1d7ca76b3, type: 3}
+  Fireball: {fileID: 6817240368481423161, guid: a5caac76e5bd2164ea90aac92496d208, type: 3}

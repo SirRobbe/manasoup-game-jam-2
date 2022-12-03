@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class Player : MonoBehaviour
 {
     private void Update()
     {
@@ -17,7 +17,9 @@ public class PlayerMovement : MonoBehaviour
 
         if(Input.GetMouseButton(0) && Timer > Cooldown)
         {
-            var projectile = Instantiate(Projectile, transform.position, Quaternion.identity);
+            var prefab = IsNextProjectileFireball ? Fireball : Projectile;
+            IsNextProjectileFireball = false;
+            var projectile = Instantiate(prefab, transform.position, Quaternion.identity);
             var worldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector2 dir = worldPosition - transform.position;
             dir.Normalize();
@@ -29,6 +31,8 @@ public class PlayerMovement : MonoBehaviour
     public float Speed = 5f;
     public float Cooldown = 0.15f;
     [HideInInspector] public float Timer = 0f;
+    [HideInInspector] public bool IsNextProjectileFireball = false;
     
     public Projectile Projectile;
+    public Projectile Fireball;
 }
