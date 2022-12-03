@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
+using UnityEngine.UI;
 
 public class CardSlot : MonoBehaviour
 {
@@ -17,8 +19,15 @@ public class CardSlot : MonoBehaviour
     public void OnClick()
     {
         ACardManager.Invoke();
+        Button.interactable = false;
+    }
+
+    private void Update()
+    {
+        Button.interactable = Mathf.Approximately(ACardManager.GetCooldown(), 0f);
     }
 
     private ACardManager ACardManager;
     private CardFactory CardFactory;
+    public Button Button;
 }
