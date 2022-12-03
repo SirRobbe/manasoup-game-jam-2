@@ -16,10 +16,9 @@ public class Nuke : MonoBehaviour
         
         Timer = Cooldown;
         
-        var nightmares = GameObject.FindGameObjectsWithTag("Nightmare");
-        foreach (GameObject nightmare in nightmares)
+        foreach (var nightmare in EnemyInstantiater.s_Nightmares)
         {
-            Destroy(nightmare);
+            Destroy(nightmare.gameObject);
         }
     }
 
