@@ -32,7 +32,7 @@ public class GameLogic : MonoBehaviour
         
         foreach (var nightmare in GameState.s_Nightmares)
         {
-            nightmare.Damage(nightmare.Health);
+            nightmare.Damage(nightmare.Health, true);
         }
         GameState.s_Nightmares.Clear();
         
