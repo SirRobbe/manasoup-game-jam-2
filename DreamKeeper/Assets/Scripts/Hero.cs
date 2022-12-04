@@ -1,12 +1,10 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Hero : MonoBehaviour
 {
     void Awake()
     {
+        DreamDepth = MaxDreamDepth;
         GameLogic = FindObjectOfType<GameLogic>();
     }
     
@@ -47,6 +45,7 @@ public class Hero : MonoBehaviour
     public int DamageTaken = 1;
     public float DamageDistance = 2f;
     public int DreamDepth = 100;
+    public int MaxDreamDepth = 100;
     private Vector2 OwnPosition;
     private GameLogic GameLogic;
 }
