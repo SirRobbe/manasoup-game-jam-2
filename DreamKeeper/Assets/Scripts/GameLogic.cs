@@ -4,6 +4,7 @@ public class GameLogic : MonoBehaviour
 {
     private void Awake()
     {
+        Screen.SetResolution(1280, 720, FullScreenMode.Windowed);
         Healthbar.gameObject.SetActive(false);
     }
     
