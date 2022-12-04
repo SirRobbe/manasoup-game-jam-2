@@ -46,3 +46,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TurretPrefab: {fileID: 4748469205205668879, guid: 7f1ff0ad3e3320441859dc0bdee0c28d, type: 3}
   Player: {fileID: 0}
+  Timer: 0
+  Cooldown: 25

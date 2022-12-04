@@ -41,7 +41,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1619176645171064759, guid: 5705984479182a44a99b9745137f681e, type: 3}
       propertyPath: Health
-      value: 50
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 3591622481319665136, guid: 5705984479182a44a99b9745137f681e, type: 3}
       propertyPath: m_Size.x
@@ -58,6 +58,14 @@ PrefabInstance:
     - target: {fileID: 3591622481319665136, guid: 5705984479182a44a99b9745137f681e, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7160296293328490067, guid: 5705984479182a44a99b9745137f681e, type: 3}
+      propertyPath: MaxVelocityRange.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7160296293328490067, guid: 5705984479182a44a99b9745137f681e, type: 3}
+      propertyPath: MaxVelocityRange.y
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8127960502171752634, guid: 5705984479182a44a99b9745137f681e, type: 3}
       propertyPath: m_RootOrder

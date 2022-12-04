@@ -1,6 +1,7 @@
 ﻿using System;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Turret : MonoBehaviour
 {
@@ -8,9 +9,9 @@ public class Turret : MonoBehaviour
 
     private void Update()
     {
-        Timer += Time.deltaTime;
+        ShootTimer += Time.deltaTime;
 
-        if(Timer >= CoolDown)
+        if(ShootTimer >= ShotCooldown)
         {
             if(GameState.s_Nightmares.Count > 0)
             {
@@ -41,21 +42,28 @@ public class Turret : MonoBehaviour
                 shotAudioSource.Play(0);
             }
 
-            Timer = 0f;
+            ShootTimer = 0f;
         }
-        
-        foreach(var nightmare in GameState.s_Nightmares)
+
+        DamageTimer += Time.deltaTime;
+
+        if(DamageTimer >= DamageCooldown)
         {
-            var distance = Vector3.Distance(transform.position, nightmare.GetComponentInChildren<NightmareMover>().transform.position);
-            if(distance < DamageDistance)
+            foreach(var nightmare in GameState.s_Nightmares)
             {
-                Health -= DamageTaken;
-                if(Health <= 0)
+                var distance = Vector3.Distance(transform.position, nightmare.GetComponentInChildren<NightmareMover>().transform.position);
+                if(distance < DamageDistance)
                 {
-                    Destroy(gameObject);
-                    GameState.s_Turrets.Remove(this);
+                    Health -= DamageTaken;
+                    if(Health <= 0)
+                    {
+                        Destroy(gameObject);
+                        GameState.s_Turrets.Remove(this);
+                    }
                 }
             }
+            
+            DamageTimer = 0f;
         }
     }
 
@@ -65,12 +73,15 @@ public class Turret : MonoBehaviour
         shotAudioSource = ShotSoundSource.GetComponent<AudioSource>();
     }
 
-    public float CoolDown = 1f;
+    [FormerlySerializedAs("CoolDown")] public float ShotCooldown = 1f;
+    public float DamageCooldown = 0.5f;
     
     public float DamageDistance = 2f;
     public int DamageTaken = 5;
     
-    public float Timer = 0f;
+    [HideInInspector] [FormerlySerializedAs("Timer")] public float ShootTimer = 0f;
+    [HideInInspector] public float DamageTimer = 0f; 
+        
     public int Health = 50;
     public Projectile Projectile;
     

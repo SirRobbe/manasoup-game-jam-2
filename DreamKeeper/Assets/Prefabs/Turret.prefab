@@ -4979,10 +4979,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 264f5872a47240758fd1beb3e546f0ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CoolDown: 0.4
+  ShotCooldown: 0.9
+  DamageCooldown: 0.3
   DamageDistance: 2
   DamageTaken: 7
-  Timer: 0
+  ShootTimer: 0
+  DamageTimer: 0
   Health: 50
   Projectile: {fileID: 7858064657739432355, guid: 8775198ffe58e0049b38c1d117efc107, type: 3}
   ShotSoundSource: {fileID: 7886041406058775809}
