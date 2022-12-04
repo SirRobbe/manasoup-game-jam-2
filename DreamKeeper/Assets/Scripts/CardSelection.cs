@@ -16,6 +16,7 @@ public class CardSelection : MonoBehaviour
 {
     public void SelectCard(CardSelectionButton button)
     {
+        GetComponent<AudioSource>().Play(0);
         if(SelectedCards.Contains(button.CardType))
         {
             SelectedCards.Remove(button.CardType);
