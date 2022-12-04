@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Hero : MonoBehaviour
 {
+    AudioSource audioSource;
     void Awake()
     {
         DreamDepth = MaxDreamDepth;
@@ -11,6 +12,7 @@ public class Hero : MonoBehaviour
     void Start()
     {
         OwnPosition = this.transform.position;
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -31,6 +33,7 @@ public class Hero : MonoBehaviour
             if (Vector2.Distance(OwnPosition, nightmarePosition) < DamageDistance)
             {
                 DreamDepth -= DamageTaken;
+                audioSource.Play(0);
             }
 
             if(DreamDepth <= 0)
