@@ -3,10 +3,12 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    AudioSource shotAudioSource;
     private void Awake()
     {
         Cam = Camera.main;
         CamTarget = transform.position;
+        shotAudioSource = ShotSoundSource.GetComponent<AudioSource>();
         Renderer = GetComponent<SpriteRenderer>();
     }
 
@@ -53,6 +55,7 @@ public class Player : MonoBehaviour
             var prefab = IsNextProjectileFireball ? Fireball : Projectile;
             IsNextProjectileFireball = false;
             var projectile = Instantiate(prefab, transform.position, Quaternion.identity);
+            shotAudioSource.Play(0);
             var screenPostDepth = Input.mousePosition;
             screenPostDepth.z = transform.position.z - Cam.transform.position.z;
             var worldPosition = Camera.main.ScreenToWorldPoint(screenPostDepth);
@@ -69,6 +72,7 @@ public class Player : MonoBehaviour
     [HideInInspector] public bool IsNextProjectileFireball = false;
     [HideInInspector] public Camera Cam;
     [HideInInspector] public Vector3 CamTarget;
+    public GameObject ShotSoundSource;
     [HideInInspector] public SpriteRenderer Renderer;
     
     public Projectile Projectile;
