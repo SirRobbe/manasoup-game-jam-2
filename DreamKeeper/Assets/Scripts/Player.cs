@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
     {
         Cam = Camera.main;
         CamTarget = transform.position;
+        Renderer = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
@@ -27,6 +28,8 @@ public class Player : MonoBehaviour
         newPlayPos.y = Mathf.Clamp(newPlayPos.y, -maxY, maxY);
         transform.position = newPlayPos;
 
+        Renderer.flipX = transform.position.x < 0f;
+        
         if(newPlayPos.x <= -maxX || newPlayPos.x >= maxX)
         {
             movement.x = 0f;
@@ -66,6 +69,7 @@ public class Player : MonoBehaviour
     [HideInInspector] public bool IsNextProjectileFireball = false;
     [HideInInspector] public Camera Cam;
     [HideInInspector] public Vector3 CamTarget;
+    [HideInInspector] public SpriteRenderer Renderer;
     
     public Projectile Projectile;
     public Projectile Fireball;
