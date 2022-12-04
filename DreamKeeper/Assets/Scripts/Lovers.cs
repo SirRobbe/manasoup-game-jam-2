@@ -26,7 +26,7 @@ public class Lovers : ACardManager
 
         foreach(var nightmare in GameState.s_Nightmares)
         {
-            float distance = Vector2.Distance(nightmare.transform.position, Player.transform.position);
+            float distance = Vector3.Distance(nightmare.gameObject.GetComponentInChildren<NightmareMover>().transform.position, Player.transform.position);
             if(distance <= Range)
             {
                 var dod = nightmare.gameObject.AddComponent<DamageOverTime>();
