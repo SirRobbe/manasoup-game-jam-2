@@ -30,7 +30,7 @@ public class Player : MonoBehaviour
         newPlayPos.y = Mathf.Clamp(newPlayPos.y, -maxY, maxY);
         transform.position = newPlayPos;
 
-        Renderer.flipX = transform.position.x < 0f;
+        Renderer.flipX = horizontal == 1 ? true : false;
         
         if(newPlayPos.x <= -maxX || newPlayPos.x >= maxX)
         {

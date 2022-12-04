@@ -3,11 +3,6 @@ using UnityEngine;
 
 public class EnemyInstantiater : MonoBehaviour
 {
-    void Awake()
-    {
-        Player = GameObject.FindGameObjectWithTag("Player");
-    }
-    
     void Update()
     {
         Timer += Time.deltaTime;

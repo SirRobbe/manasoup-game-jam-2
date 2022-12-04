@@ -464,6 +464,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &228741758 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3000776424126349575, guid: 9c799af5da7cb224b90adfb0c76ee2e0, type: 3}
+  m_PrefabInstance: {fileID: 1187766170}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &638857473
 GameObject:
   m_ObjectHideFlags: 0
@@ -564,7 +569,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8417170528766473970, guid: 9c799af5da7cb224b90adfb0c76ee2e0, type: 3}
   m_PrefabInstance: {fileID: 1187766170}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 228741758}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 517dd39104b44f0d91abcde1c03dfb3d, type: 3}
@@ -2048,6 +2053,10 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -1852814025
       objectReference: {fileID: 0}
+    - target: {fileID: 2188770678434526720, guid: bc628200834f69b4d866a2df870dbf5a, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 228741758}
     - target: {fileID: 2188770678434526720, guid: bc628200834f69b4d866a2df870dbf5a, type: 3}
       propertyPath: NightmarePrefabs.Array.size
       value: 2
