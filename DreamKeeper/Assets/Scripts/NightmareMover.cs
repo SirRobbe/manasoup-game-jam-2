@@ -1,3 +1,4 @@
+using UnityEditor;
 using UnityEngine;
 using Quaternion = UnityEngine.Quaternion;
 using Random = UnityEngine.Random;
@@ -8,6 +9,7 @@ public class NightmareMover : MonoBehaviour
     private void Awake()
     {
         Renderer = GetComponent<SpriteRenderer>();
+        Player = GameObject.FindGameObjectWithTag("Player");
     }
     private void Start()
     {
@@ -108,7 +110,7 @@ public class NightmareMover : MonoBehaviour
         SinWave = new Vector2(Mathf.Sin(SinusWaveTime), Mathf.Cos(SinusWaveTime)) * DistanceToTarget;
         var newPosition = Vector2.SmoothDamp(CurrentPosition, 
             TargetPosition + SinWave, ref Velocity, SmoothTime, MaxVelocity);
-        transform.position = new Vector3(newPosition.x, newPosition.y, Hero.transform.position.z);
+        transform.position = new Vector3(newPosition.x, newPosition.y, Player.transform.position.z);
 
         if ((TargetPosition.y + Offset) > transform.position.y)
         {
@@ -149,6 +151,7 @@ public class NightmareMover : MonoBehaviour
     private Vector2 Velocity = Vector2.zero;
     private Vector2 TargetPosition;
     private GameObject Hero;
+    private GameObject Player;
 
     [HideInInspector] public SpriteRenderer Renderer;
     [HideInInspector] public State CurrentState = State.AttackHero;
