@@ -55,6 +55,7 @@ public class Player : MonoBehaviour
             var prefab = IsNextProjectileFireball ? Fireball : Projectile;
             IsNextProjectileFireball = false;
             var projectile = Instantiate(prefab, transform.position, Quaternion.identity);
+            shotAudioSource.pitch = UnityEngine.Random.Range(0.9f, 1.1f);
             shotAudioSource.Play(0);
             var screenPostDepth = Input.mousePosition;
             screenPostDepth.z = transform.position.z - Cam.transform.position.z;
