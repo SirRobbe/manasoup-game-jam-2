@@ -5,9 +5,12 @@ using UnityEngine;
 
 public class Nuke : ACardManager
 {
+    AudioSource audioSource;
+
     private void Start()
     {
         Nightmares = GameState.s_Nightmares;
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -17,6 +20,7 @@ public class Nuke : ACardManager
     }
     IEnumerator ActivateEffect()
     {
+        audioSource.Play(0);
         foreach (var nightmare in Nightmares)
         {
             nightmare.transform.Find("NightmareBody/ParticleSystemDeath").GetComponent<ParticleSystem>().Play();
