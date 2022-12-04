@@ -1974,6 +1974,18 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -1852814025
       objectReference: {fileID: 0}
+    - target: {fileID: 2188770678434526720, guid: bc628200834f69b4d866a2df870dbf5a, type: 3}
+      propertyPath: NightmarePrefabs.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2188770678434526720, guid: bc628200834f69b4d866a2df870dbf5a, type: 3}
+      propertyPath: NightmarePrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 5665915307089193115, guid: 7b285893aa082b14ea806058a86851dd, type: 3}
+    - target: {fileID: 2188770678434526720, guid: bc628200834f69b4d866a2df870dbf5a, type: 3}
+      propertyPath: NightmarePrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 8394226625178743190, guid: 14d3ddb9291e1624ebc0bf78d5545b33, type: 3}
     - target: {fileID: 5883948390713007335, guid: bc628200834f69b4d866a2df870dbf5a, type: 3}
       propertyPath: m_IsActive
       value: 1
