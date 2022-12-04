@@ -106,8 +106,9 @@ public class NightmareMover : MonoBehaviour
         DistanceToTarget = Vector2.Distance(CurrentPosition, TargetPosition);
         SinusWaveTime = (SinusWaveStartValue + Time.time);
         SinWave = new Vector2(Mathf.Sin(SinusWaveTime), Mathf.Cos(SinusWaveTime)) * DistanceToTarget;
-        transform.position = Vector2.SmoothDamp(CurrentPosition, 
+        var newPosition = Vector2.SmoothDamp(CurrentPosition, 
             TargetPosition + SinWave, ref Velocity, SmoothTime, MaxVelocity);
+        transform.position = new Vector3(newPosition.x, newPosition.y, Hero.transform.position.z);
 
         if ((TargetPosition.y + Offset) > transform.position.y)
         {
@@ -130,8 +131,9 @@ public class NightmareMover : MonoBehaviour
     {
         CurrentPosition = transform.position;
         Vector2 FleeTarget = (CurrentPosition - TargetPosition) * 10f;
-        transform.position = Vector2.SmoothDamp(CurrentPosition, 
+        var newPosition = Vector2.SmoothDamp(CurrentPosition, 
             CurrentPosition + FleeTarget, ref Velocity, SmoothTime, MaxVelocity);
+        transform.position = new Vector3(newPosition.x, newPosition.y, Hero.transform.position.z);
     }
 
     private float Offset = 0.5f;

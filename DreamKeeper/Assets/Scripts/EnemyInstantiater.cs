@@ -10,7 +10,8 @@ public class EnemyInstantiater : MonoBehaviour
         {
             var position = new Vector3(Random.Range(-20.0f, 20.0f),Random.Range(10f, 20f), Player.transform.position.z);
             var prefab = NightmarePrefabs[Random.Range(0, NightmarePrefabs.Count)];
-            Instantiate(prefab, position, Quaternion.identity).GetComponentInChildren<NightmareMover>();
+            var mover = Instantiate(prefab, position, Quaternion.identity).GetComponentInChildren<NightmareMover>();
+            mover.gameObject.transform.position = position;
             Timer = 0f;
         }
     }
