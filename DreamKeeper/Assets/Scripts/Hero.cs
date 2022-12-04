@@ -7,6 +7,7 @@ public class Hero : MonoBehaviour
     {
         DreamDepth = MaxDreamDepth;
         GameLogic = FindObjectOfType<GameLogic>();
+        GameOverManager = FindObjectOfType<GameOverManager>();
     }
     
     void Start()
@@ -18,7 +19,12 @@ public class Hero : MonoBehaviour
     private void Update()
     {
         Timer += Time.deltaTime;
-        if (Timer >= Tick)
+        if (DreamDepth <= 0f)
+        {
+            GameOverManager.gameObject.SetActive(true);
+            GameLogic.End();
+        }
+        else if (Timer >= Tick)
         {
             CheckForCloseNightmares();
             Timer = 0f;
@@ -35,11 +41,6 @@ public class Hero : MonoBehaviour
                 DreamDepth -= DamageTaken;
                 audioSource.Play(0);
             }
-
-            if(DreamDepth <= 0)
-            {
-                GameLogic.End();
-            }
         }
     }
     
@@ -51,4 +52,5 @@ public class Hero : MonoBehaviour
     public int MaxDreamDepth = 100;
     private Vector2 OwnPosition;
     private GameLogic GameLogic;
+    private GameOverManager GameOverManager;
 }

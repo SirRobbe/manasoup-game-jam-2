@@ -4,9 +4,9 @@ public class GameLogic : MonoBehaviour
 {
     private void Awake()
     {
-        Player.gameObject.SetActive(false);
         Healthbar.gameObject.SetActive(false);
     }
+    
     
     public void Begin()
     {
@@ -45,6 +45,7 @@ public class GameLogic : MonoBehaviour
     
     private void Start()
     {
+        Player.gameObject.SetActive(false);
         Pause();
     }
 
@@ -66,6 +67,7 @@ public class GameLogic : MonoBehaviour
             CardSlotTwo.OnClick();
         }
     }
+
 
     public Hero Hero;
     public Player Player;
