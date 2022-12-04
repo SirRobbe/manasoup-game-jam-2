@@ -18,6 +18,7 @@ public class HangedMan : ACardManager
     {
         foreach (var nightmare in Nightmares)
         {
+            nightmare.transform.Find("NightmareBody/ParticleSystemHangedMan").GetComponent<ParticleSystem>().Play();
             nightmare.GetComponentInChildren<NightmareMover>().CurrentState = NightmareMover.State.Flee;
         }
         yield return new WaitForSeconds(Duration);

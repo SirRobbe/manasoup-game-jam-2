@@ -158,6 +158,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NightmareBody
       objectReference: {fileID: 0}
+    - target: {fileID: 3481589472691225412, guid: 18aa698792936c54b9accc72f2e13a0a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 505135a0ac1af114085c706a29f77d16, type: 2}
     - target: {fileID: 5731485447756348194, guid: 18aa698792936c54b9accc72f2e13a0a, type: 3}
       propertyPath: m_SortingOrder
       value: 2

@@ -14,6 +14,7 @@ public class Lovers : ACardManager
         {
             return;
         }
+        Player.GetComponent<ParticleSystem>().Play();
         
         foreach(var nightmare in GameState.s_Nightmares)
         {
