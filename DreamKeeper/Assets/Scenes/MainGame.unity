@@ -859,6 +859,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70714697c29dd354088a66a2b03fdc42, type: 3}
+--- !u!1 &1210649392 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1379954001017376083, guid: 70714697c29dd354088a66a2b03fdc42, type: 3}
+  m_PrefabInstance: {fileID: 1210649391}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1296833492
 GameObject:
   m_ObjectHideFlags: 0
@@ -1335,6 +1340,21 @@ AudioSource:
   m_CorrespondingSourceObject: {fileID: 5346600954518450642, guid: 70714697c29dd354088a66a2b03fdc42, type: 3}
   m_PrefabInstance: {fileID: 1210649391}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1933962916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1210649392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 200e97707e765acc8862e731097ec2cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartSampleCount: 304941
+  EndSampleCount: 1965176
+  Loop: 1
 --- !u!1 &1946529325
 GameObject:
   m_ObjectHideFlags: 0
@@ -1529,8 +1549,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5346600954518450642, guid: 70714697c29dd354088a66a2b03fdc42, type: 3}
       propertyPath: m_Volume
-      value: 0.1
+      value: 0.13
       objectReference: {fileID: 0}
+    - target: {fileID: 5346600954518450642, guid: 70714697c29dd354088a66a2b03fdc42, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 0124aa1b4b2488a54a0c285e842bd54d, type: 3}
     - target: {fileID: 8594652943236472574, guid: 70714697c29dd354088a66a2b03fdc42, type: 3}
       propertyPath: m_RootOrder
       value: 14
@@ -1577,6 +1601,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70714697c29dd354088a66a2b03fdc42, type: 3}
+--- !u!1 &39453033618997996 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1379954001017376083, guid: 70714697c29dd354088a66a2b03fdc42, type: 3}
+  m_PrefabInstance: {fileID: 39453033618997995}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &39453033618997997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 39453033618997996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 200e97707e765acc8862e731097ec2cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartSampleCount: 592941
+  EndSampleCount: 3252706
+  Loop: 1
 --- !u!1001 &1955082843957221501
 PrefabInstance:
   m_ObjectHideFlags: 0
