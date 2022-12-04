@@ -17,6 +17,8 @@ public class GameLogic : MonoBehaviour
         Healthbar.gameObject.SetActive(true);
         CardSlotOne.Activate(GameState.s_SelectedCardTypes[0]);
         CardSlotTwo.Activate(GameState.s_SelectedCardTypes[1]);
+        
+        BackgroundMusic.Play();
     }
 
     public void End()
@@ -71,4 +73,5 @@ public class GameLogic : MonoBehaviour
     public CardSlot CardSlotOne;
     public CardSlot CardSlotTwo;
     public Healthbar Healthbar;
+    public AudioSource BackgroundMusic;
 }
