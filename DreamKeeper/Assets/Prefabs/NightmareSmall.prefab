@@ -1,0 +1,141 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &7063386049935842849
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 234256061914700046, guid: 5705984479182a44a99b9745137f681e, type: 3}
+      propertyPath: m_Size.x
+      value: 3.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 234256061914700046, guid: 5705984479182a44a99b9745137f681e, type: 3}
+      propertyPath: m_Size.y
+      value: 2.71
+      objectReference: {fileID: 0}
+    - target: {fileID: 234256061914700046, guid: 5705984479182a44a99b9745137f681e, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.74
+      objectReference: {fileID: 0}
+    - target: {fileID: 234256061914700046, guid: 5705984479182a44a99b9745137f681e, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 234256061914700046, guid: 5705984479182a44a99b9745137f681e, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 38.399998
+      objectReference: {fileID: 0}
+    - target: {fileID: 234256061914700046, guid: 5705984479182a44a99b9745137f681e, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 21.599998
+      objectReference: {fileID: 0}
+    - target: {fileID: 234256061914700046, guid: 5705984479182a44a99b9745137f681e, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 234256061914700046, guid: 5705984479182a44a99b9745137f681e, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1619176645171064759, guid: 5705984479182a44a99b9745137f681e, type: 3}
+      propertyPath: Health
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 3591622481319665136, guid: 5705984479182a44a99b9745137f681e, type: 3}
+      propertyPath: m_Size.x
+      value: 38.399998
+      objectReference: {fileID: 0}
+    - target: {fileID: 3591622481319665136, guid: 5705984479182a44a99b9745137f681e, type: 3}
+      propertyPath: m_Size.y
+      value: 21.599998
+      objectReference: {fileID: 0}
+    - target: {fileID: 3591622481319665136, guid: 5705984479182a44a99b9745137f681e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 625f933cc9dfe6045afe13674cfe5c87, type: 3}
+    - target: {fileID: 3591622481319665136, guid: 5705984479182a44a99b9745137f681e, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8127960502171752634, guid: 5705984479182a44a99b9745137f681e, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8127960502171752634, guid: 5705984479182a44a99b9745137f681e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8127960502171752634, guid: 5705984479182a44a99b9745137f681e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8127960502171752634, guid: 5705984479182a44a99b9745137f681e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8127960502171752634, guid: 5705984479182a44a99b9745137f681e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8127960502171752634, guid: 5705984479182a44a99b9745137f681e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8127960502171752634, guid: 5705984479182a44a99b9745137f681e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8127960502171752634, guid: 5705984479182a44a99b9745137f681e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8127960502171752634, guid: 5705984479182a44a99b9745137f681e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8127960502171752634, guid: 5705984479182a44a99b9745137f681e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8127960502171752634, guid: 5705984479182a44a99b9745137f681e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8601121291794490409, guid: 5705984479182a44a99b9745137f681e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 783fab5907d787245908d0f46aa42382, type: 3}
+    - target: {fileID: 8601121291794490409, guid: 5705984479182a44a99b9745137f681e, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8758099991944903275, guid: 5705984479182a44a99b9745137f681e, type: 3}
+      propertyPath: m_Name
+      value: NightmareSmall
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 2617324466732630294, guid: 5705984479182a44a99b9745137f681e, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 5705984479182a44a99b9745137f681e, type: 3}
+--- !u!1 &1987465207729700547 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8760298575512805602, guid: 5705984479182a44a99b9745137f681e, type: 3}
+  m_PrefabInstance: {fileID: 7063386049935842849}
+  m_PrefabAsset: {fileID: 0}
+--- !u!70 &8037169247770071030
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1987465207729700547}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.43, y: -0.2}
+  m_Size: {x: 4, y: 2}
+  m_Direction: 1

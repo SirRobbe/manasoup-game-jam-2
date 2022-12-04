@@ -1,12 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Fog : MonoBehaviour
 {
+    private void Awake()
+    {
+        Hero = FindObjectOfType<Hero>();
+    }
+
     void Start()
     {
-        Hero = GameObject.FindGameObjectWithTag("Hero");
         if(!Hero)
         {
             return;
@@ -24,6 +26,6 @@ public class Fog : MonoBehaviour
     }
 
     public GameObject Nightmare;
-    public GameObject Hero;
+    [HideInInspector] public Hero Hero;
     public Vector3 TargetPosition;
 }

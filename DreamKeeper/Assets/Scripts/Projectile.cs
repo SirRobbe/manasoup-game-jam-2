@@ -16,6 +16,7 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
+        Debug.Log($"Trigger Enter");
         if(collider.CompareTag(TargetTag))
         {
             var nightmare = collider.GetComponentInParent<Nightmare>();
