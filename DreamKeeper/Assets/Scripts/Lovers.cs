@@ -27,7 +27,6 @@ public class Lovers : ACardManager
             }
         }
         
-        Player.IsNextProjectileFireball = true;
         Timer = Cooldown;
     }
 

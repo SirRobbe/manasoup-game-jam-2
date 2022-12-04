@@ -44,6 +44,18 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Cones
+    uniqueID: 1613760275
+    locked: 0
+  - name: Tower
+    uniqueID: 2107657211
+    locked: 0
+  - name: Ground
+    uniqueID: 3851099175
+    locked: 0
+  - name: Player
+    uniqueID: 1870644623
+    locked: 0
   - name: FG
     uniqueID: 2442153271
     locked: 0
