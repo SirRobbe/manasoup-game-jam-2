@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class HangedMan : ACardManager
 {
+    AudioSource audioSource;
+
     private void Start()
     {
         Nightmares = GameState.s_Nightmares;
+        audioSource = GetComponent<AudioSource>();
     }
     private void Update()
     {
@@ -16,6 +19,7 @@ public class HangedMan : ACardManager
 
     IEnumerator ActivateEffect()
     {
+        audioSource.Play(0);
         foreach (var nightmare in Nightmares)
         {
             nightmare.transform.Find("NightmareBody/ParticleSystemHangedMan").GetComponent<ParticleSystem>().Play();
