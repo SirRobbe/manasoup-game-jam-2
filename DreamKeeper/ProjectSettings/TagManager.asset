@@ -47,6 +47,9 @@ TagManager:
   - name: Cones
     uniqueID: 1613760275
     locked: 0
+  - name: Enemy
+    uniqueID: 4023510037
+    locked: 0
   - name: Tower
     uniqueID: 2107657211
     locked: 0
