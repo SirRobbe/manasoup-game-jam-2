@@ -820,6 +820,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6549454201253395821, guid: 9c799af5da7cb224b90adfb0c76ee2e0, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 4393162564539211416, guid: f52d2869a4937c005bf5bc9f006a0e5f, type: 2}
     - target: {fileID: 8417170528766473970, guid: 9c799af5da7cb224b90adfb0c76ee2e0, type: 3}
       propertyPath: Cooldown
       value: 0.25
@@ -849,6 +853,10 @@ PrefabInstance:
       propertyPath: m_PlayOnAwake
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5346600954518450642, guid: 70714697c29dd354088a66a2b03fdc42, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 3890850624351729950, guid: f52d2869a4937c005bf5bc9f006a0e5f, type: 2}
     - target: {fileID: 8594652943236472574, guid: 70714697c29dd354088a66a2b03fdc42, type: 3}
       propertyPath: m_RootOrder
       value: 15
@@ -1595,6 +1603,10 @@ PrefabInstance:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: 0124aa1b4b2488a54a0c285e842bd54d, type: 3}
+    - target: {fileID: 5346600954518450642, guid: 70714697c29dd354088a66a2b03fdc42, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 3890850624351729950, guid: f52d2869a4937c005bf5bc9f006a0e5f, type: 2}
     - target: {fileID: 8594652943236472574, guid: 70714697c29dd354088a66a2b03fdc42, type: 3}
       propertyPath: m_RootOrder
       value: 14

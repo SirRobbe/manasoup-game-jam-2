@@ -47,7 +47,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Hero: {fileID: 7346071081937601395}
+  Player: {fileID: 0}
   EnemySpawner: {fileID: 2188770678434526720}
+  CardSlotOne: {fileID: 0}
+  CardSlotTwo: {fileID: 0}
+  Healthbar: {fileID: 0}
+  BackgroundMusic: {fileID: 0}
+  MainMenuMusic: {fileID: 0}
 --- !u!1001 &6280552658822680028
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -59,6 +65,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hero
       objectReference: {fileID: 0}
+    - target: {fileID: 2706994484581987912, guid: c117d25f6ab30d845a01d39474edca80, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 4393162564539211416, guid: f52d2869a4937c005bf5bc9f006a0e5f, type: 2}
     - target: {fileID: 4439941162847799861, guid: c117d25f6ab30d845a01d39474edca80, type: 3}
       propertyPath: m_RootOrder
       value: 0

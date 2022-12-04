@@ -141,7 +141,7 @@ AudioSource:
   m_GameObject: {fileID: 2856960251228529860}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 4393162564539211416, guid: f52d2869a4937c005bf5bc9f006a0e5f, type: 2}
   m_audioClip: {fileID: 8300000, guid: 238aae9292d3e05db9055ac5eb169fe8, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -276,8 +276,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 100
+  Mover: {fileID: 0}
   DeathSound: {fileID: 7206061532894056435}
-  Renderer: {fileID: 7304185751286041667}
+  DamageSound: {fileID: 0}
+  Base: {fileID: 0}
+  Cone: {fileID: 0}
+  Collider: {fileID: 0}
 --- !u!1001 &3087214899702118241
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -299,7 +303,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 505135a0ac1af114085c706a29f77d16, type: 2}
     - target: {fileID: 5731485447756348194, guid: 18aa698792936c54b9accc72f2e13a0a, type: 3}
       propertyPath: m_SortingLayer
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5731485447756348194, guid: 18aa698792936c54b9accc72f2e13a0a, type: 3}
       propertyPath: m_SortingOrder
@@ -363,10 +367,5 @@ GameObject:
 --- !u!4 &5162023720909820421 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7887153840585303396, guid: 18aa698792936c54b9accc72f2e13a0a, type: 3}
-  m_PrefabInstance: {fileID: 3087214899702118241}
-  m_PrefabAsset: {fileID: 0}
---- !u!212 &7304185751286041667 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 5731485447756348194, guid: 18aa698792936c54b9accc72f2e13a0a, type: 3}
   m_PrefabInstance: {fileID: 3087214899702118241}
   m_PrefabAsset: {fileID: 0}

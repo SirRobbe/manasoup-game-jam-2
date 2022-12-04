@@ -59,6 +59,10 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5627539791393108269, guid: 5705984479182a44a99b9745137f681e, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 4393162564539211416, guid: f52d2869a4937c005bf5bc9f006a0e5f, type: 2}
     - target: {fileID: 7160296293328490067, guid: 5705984479182a44a99b9745137f681e, type: 3}
       propertyPath: MaxVelocityRange.x
       value: 5
@@ -67,6 +71,10 @@ PrefabInstance:
       propertyPath: MaxVelocityRange.y
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 7813805752219380131, guid: 5705984479182a44a99b9745137f681e, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 4393162564539211416, guid: f52d2869a4937c005bf5bc9f006a0e5f, type: 2}
     - target: {fileID: 8127960502171752634, guid: 5705984479182a44a99b9745137f681e, type: 3}
       propertyPath: m_RootOrder
       value: 0
