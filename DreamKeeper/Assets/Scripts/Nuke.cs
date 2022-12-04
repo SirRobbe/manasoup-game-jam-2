@@ -27,9 +27,10 @@ public class Nuke : ACardManager
         }
         yield return new WaitForSeconds(1f);
 
-        for(int i = 0; i< Nightmares.Count; i++)
+        Nightmares[0].Damage(Nightmares[0].Health); 
+        for(int i = 1; i< Nightmares.Count; i++)
         {
-            Nightmares[i].Damage(Nightmares[i].Health); 
+            Nightmares[i].Damage(Nightmares[i].Health, true); 
         }
         
         Nightmares.Clear();
