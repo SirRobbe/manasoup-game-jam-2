@@ -67,8 +67,10 @@ public class NightmareMover : MonoBehaviour
                     return;
                 }
 
-                var heroToTarget = (transform.position - Hero.transform.position).normalized;
-                transform.position += heroToTarget * (Time.deltaTime * MaxVelocity);
+                var hero = (Vector2)Hero.transform.position;
+                var nightmare = (Vector2)transform.position;
+                var heroToTarget = (nightmare - hero).normalized;
+                transform.position += new Vector3(heroToTarget.x, heroToTarget.y, 0f) * (Time.deltaTime * MaxVelocity);
                 break;
             }
             case State.Flee:
