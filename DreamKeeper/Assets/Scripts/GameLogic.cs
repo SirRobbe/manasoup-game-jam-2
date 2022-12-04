@@ -17,8 +17,13 @@ public class GameLogic : MonoBehaviour
         CardSlotOne.Activate(GameState.s_SelectedCardTypes[0]);
         CardSlotTwo.Activate(GameState.s_SelectedCardTypes[1]);
         
-        MainMenuMusic.Stop();
+        Invoke("StopMenuMusic", 0.2f);
         BackgroundMusic.Play();
+    }
+
+    public void StopMenuMusic()
+    {
+        MainMenuMusic.Stop();
     }
 
     public void End()
