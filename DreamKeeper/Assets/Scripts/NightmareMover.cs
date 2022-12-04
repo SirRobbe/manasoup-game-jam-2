@@ -17,16 +17,21 @@ public class NightmareMover : MonoBehaviour
         MaxVelocity = Random.Range(MaxVelocityRange.x, MaxVelocityRange.y);
         SinusWaveStartValue = Random.value;
         
-        Hero = GameObject.FindGameObjectWithTag("Hero");
-        if(!Hero)
+        Target = GameObject.FindGameObjectWithTag("Hero");
+        if(!Target)
         {
             return;
         }
         
-        TargetPosition = Hero.transform.position;
+        TargetPosition = Target.transform.position;
     }
     private void Update()
     {
+        if(!Target)
+        {
+            Target = GameObject.FindGameObjectWithTag("Hero");
+            TargetPosition = Target.transform.position;
+        }
         UpdateOrientation();
 
         switch(CurrentState)
@@ -35,10 +40,11 @@ public class NightmareMover : MonoBehaviour
             {
                 foreach (var turret in GameState.s_Turrets)
                 {
-                    float d = Vector2.Distance(transform.position, turret.transform.position);
+                    float d = Vector3.Distance(transform.position, turret.transform.position);
                     if (d < TurretTriggerDistance && Random.Range(0, 1) < 0.5f)
                     {
-                        Hero = turret.gameObject;
+                        Target = turret.gameObject;
+                        TargetPosition = Target.transform.position;
                         CurrentState = State.AttackTurret;
                         break;
                     }
@@ -50,10 +56,10 @@ public class NightmareMover : MonoBehaviour
 
             case State.AttackTurret:
             {
-                if (Hero == null)
+                if (Target == null)
                 {
-                    //Renderer.color = Color.red;
-                    Hero = GameObject.FindGameObjectWithTag("Hero");
+                    Target = GameObject.FindGameObjectWithTag("Hero");
+                    TargetPosition = Target.transform.position;
                     CurrentState = State.AttackHero;
                 }
 
@@ -62,12 +68,12 @@ public class NightmareMover : MonoBehaviour
             }
             case State.BounceBack:
             {
-                if (!Hero)
+                if (!Target)
                 {
                     return;
                 }
 
-                var hero = (Vector2)Hero.transform.position;
+                var hero = (Vector2)Target.transform.position;
                 var nightmare = (Vector2)transform.position;
                 var heroToTarget = (nightmare - hero).normalized;
                 transform.position += new Vector3(heroToTarget.x, heroToTarget.y, 0f) * (Time.deltaTime * MaxVelocity);
@@ -83,7 +89,7 @@ public class NightmareMover : MonoBehaviour
     private void UpdateOrientation()
     {
         Renderer.flipX = transform.position.x < 0;
-        var toNightmare = transform.position - Hero.transform.position;
+        var toNightmare = transform.position - Target.transform.position;
         float angle = Vector2.Angle(Vector2.right, toNightmare);
         if(Renderer.flipX)
         {
@@ -101,7 +107,7 @@ public class NightmareMover : MonoBehaviour
     
     private void MoveAtTarget()
     {
-        if(!Hero)
+        if(!Target)
         {
             return;
         }
@@ -137,7 +143,7 @@ public class NightmareMover : MonoBehaviour
         Vector2 FleeTarget = (CurrentPosition - TargetPosition) * 10f;
         var newPosition = Vector2.SmoothDamp(CurrentPosition, 
             CurrentPosition + FleeTarget, ref Velocity, SmoothTime, MaxVelocity);
-        transform.position = new Vector3(newPosition.x, newPosition.y, Hero.transform.position.z);
+        transform.position = new Vector3(newPosition.x, newPosition.y, Target.transform.position.z);
     }
 
     private float Offset = 0.5f;
@@ -152,7 +158,7 @@ public class NightmareMover : MonoBehaviour
     private float MaxVelocity;
     private Vector2 Velocity = Vector2.zero;
     private Vector2 TargetPosition;
-    private GameObject Hero;
+    private GameObject Target;
     private GameObject Player;
 
     [HideInInspector] public SpriteRenderer Renderer;

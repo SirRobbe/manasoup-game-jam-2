@@ -10254,7 +10254,7 @@ MonoBehaviour:
   MaxVelocityRange: {x: 1, y: 10}
   Renderer: {fileID: 0}
   CurrentState: 1
-  TurretTriggerDistance: 0.5
+  TurretTriggerDistance: 2
 --- !u!58 &2617324466732630294
 CircleCollider2D:
   m_ObjectHideFlags: 0

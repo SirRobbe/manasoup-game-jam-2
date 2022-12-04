@@ -46,8 +46,8 @@ public class Turret : MonoBehaviour
         
         foreach(var nightmare in GameState.s_Nightmares)
         {
-            if(Vector2.Distance(transform.position, nightmare.transform.position) 
-               < DamageDistance)
+            var distance = Vector3.Distance(transform.position, nightmare.GetComponentInChildren<NightmareMover>().transform.position);
+            if(distance < DamageDistance)
             {
                 Health -= DamageTaken;
                 if(Health <= 0)

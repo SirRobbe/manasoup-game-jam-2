@@ -4906,7 +4906,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2297035581022494883}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 3}
   m_LocalScale: {x: 0.27, y: 0.27, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4980,10 +4980,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CoolDown: 0.4
-  DamageDistance: 0.5
-  DamageTaken: 5
+  DamageDistance: 2
+  DamageTaken: 7
   Timer: 0
-  Health: 1000
+  Health: 50
   Projectile: {fileID: 7858064657739432355, guid: 8775198ffe58e0049b38c1d117efc107, type: 3}
   ShotSoundSource: {fileID: 7886041406058775809}
 --- !u!82 &1657423714664779750
