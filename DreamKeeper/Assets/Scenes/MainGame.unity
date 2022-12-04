@@ -733,6 +733,75 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c799af5da7cb224b90adfb0c76ee2e0, type: 3}
+--- !u!1001 &1210649391
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1379954001017376083, guid: 70714697c29dd354088a66a2b03fdc42, type: 3}
+      propertyPath: m_Name
+      value: MainMenuPlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 5346600954518450642, guid: 70714697c29dd354088a66a2b03fdc42, type: 3}
+      propertyPath: m_Volume
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 5346600954518450642, guid: 70714697c29dd354088a66a2b03fdc42, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: b6a94fed110e25d03bb70797129f0465, type: 3}
+    - target: {fileID: 5346600954518450642, guid: 70714697c29dd354088a66a2b03fdc42, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8594652943236472574, guid: 70714697c29dd354088a66a2b03fdc42, type: 3}
+      propertyPath: m_RootOrder
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8594652943236472574, guid: 70714697c29dd354088a66a2b03fdc42, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8594652943236472574, guid: 70714697c29dd354088a66a2b03fdc42, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8594652943236472574, guid: 70714697c29dd354088a66a2b03fdc42, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8594652943236472574, guid: 70714697c29dd354088a66a2b03fdc42, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8594652943236472574, guid: 70714697c29dd354088a66a2b03fdc42, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8594652943236472574, guid: 70714697c29dd354088a66a2b03fdc42, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8594652943236472574, guid: 70714697c29dd354088a66a2b03fdc42, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8594652943236472574, guid: 70714697c29dd354088a66a2b03fdc42, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8594652943236472574, guid: 70714697c29dd354088a66a2b03fdc42, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8594652943236472574, guid: 70714697c29dd354088a66a2b03fdc42, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 70714697c29dd354088a66a2b03fdc42, type: 3}
 --- !u!1 &1296833492
 GameObject:
   m_ObjectHideFlags: 0
@@ -1235,6 +1304,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1933962915 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 5346600954518450642, guid: 70714697c29dd354088a66a2b03fdc42, type: 3}
+  m_PrefabInstance: {fileID: 1210649391}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1946529325
 GameObject:
   m_ObjectHideFlags: 0
@@ -2006,6 +2080,10 @@ PrefabInstance:
       propertyPath: CardSlotTwo
       value: 
       objectReference: {fileID: 1681801982}
+    - target: {fileID: 6280552659717910052, guid: bc628200834f69b4d866a2df870dbf5a, type: 3}
+      propertyPath: MainMenuMusic
+      value: 
+      objectReference: {fileID: 1933962915}
     - target: {fileID: 6280552659717910052, guid: bc628200834f69b4d866a2df870dbf5a, type: 3}
       propertyPath: BackgroundMusic
       value: 

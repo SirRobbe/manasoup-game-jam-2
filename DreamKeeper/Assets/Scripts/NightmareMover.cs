@@ -2,7 +2,6 @@ using UnityEngine;
 using Quaternion = UnityEngine.Quaternion;
 using Random = UnityEngine.Random;
 using Vector2 = UnityEngine.Vector2;
-using Vector3 = UnityEngine.Vector3;
 
 public class NightmareMover : MonoBehaviour
 {
@@ -28,7 +27,7 @@ public class NightmareMover : MonoBehaviour
     {
         UpdateOrientation();
 
-        switch (CurrentState)
+        switch(CurrentState)
         {
             case State.AttackHero:
             {
@@ -102,16 +101,17 @@ public class NightmareMover : MonoBehaviour
         {
             return;
         }
+        
         CurrentPosition = transform.position;
         DistanceToTarget = Vector2.Distance(CurrentPosition, TargetPosition);
-        SinusWaveTime = (SinusWaveStartValue + Time.time) % 360;
+        SinusWaveTime = (SinusWaveStartValue + Time.time);
         SinWave = new Vector2(Mathf.Sin(SinusWaveTime), Mathf.Cos(SinusWaveTime)) * DistanceToTarget;
         transform.position = Vector2.SmoothDamp(CurrentPosition, 
             TargetPosition + SinWave, ref Velocity, SmoothTime, MaxVelocity);
 
         if ((TargetPosition.y + Offset) > transform.position.y)
         {
-            Velocity = -2*Velocity;
+            Velocity *= -1f;
         }
     }
 

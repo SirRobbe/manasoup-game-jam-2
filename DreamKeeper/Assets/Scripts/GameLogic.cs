@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class GameLogic : MonoBehaviour
 {
@@ -18,6 +17,7 @@ public class GameLogic : MonoBehaviour
         CardSlotOne.Activate(GameState.s_SelectedCardTypes[0]);
         CardSlotTwo.Activate(GameState.s_SelectedCardTypes[1]);
         
+        MainMenuMusic.Stop();
         BackgroundMusic.Play();
     }
 
@@ -74,4 +74,5 @@ public class GameLogic : MonoBehaviour
     public CardSlot CardSlotTwo;
     public Healthbar Healthbar;
     public AudioSource BackgroundMusic;
+    public AudioSource MainMenuMusic;
 }
