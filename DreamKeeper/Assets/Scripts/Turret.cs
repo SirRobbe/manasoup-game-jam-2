@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Turret : MonoBehaviour
 {
+    AudioSource shotAudioSource;
+
     private void Update()
     {
         Timer += Time.deltaTime;
@@ -35,6 +37,8 @@ public class Turret : MonoBehaviour
             
                 var projectile = Instantiate(Projectile, transform.position, Quaternion.identity);
                 projectile.Direction = direction2D;
+                shotAudioSource.pitch = UnityEngine.Random.Range(1.2f, 1.4f);
+                shotAudioSource.Play(0);
             }
 
             Timer = 0f;
@@ -58,6 +62,7 @@ public class Turret : MonoBehaviour
     private void Awake()
     {
         GameState.s_Turrets.Add(this);
+        shotAudioSource = ShotSoundSource.GetComponent<AudioSource>();
     }
 
     public float CoolDown = 1f;
@@ -68,4 +73,6 @@ public class Turret : MonoBehaviour
     public float Timer = 0f;
     public int Health = 50;
     public Projectile Projectile;
+    
+    public GameObject ShotSoundSource;
 }
