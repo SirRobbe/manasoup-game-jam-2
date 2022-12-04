@@ -32,8 +32,8 @@ public class BarrierManager : ACardManager
         
         CooldownTimer = Cooldown;
         DurationTimer = Duration;
-
-        BarrierInstance = Instantiate(BarrierPrefab, Hero.transform.position, Quaternion.identity);
+        SpawnPosition = new Vector3(Hero.transform.position.x -0.35f, Hero.transform.position.y, Hero.transform.position.z);
+        BarrierInstance = Instantiate(BarrierPrefab, SpawnPosition, Quaternion.identity);
     }
 
     public override float GetCooldown()
@@ -41,6 +41,7 @@ public class BarrierManager : ACardManager
         return CooldownTimer;
     }
 
+    private Vector3 SpawnPosition;
     public Barrier BarrierPrefab;
     public Hero Hero;
     public float Cooldown = 10f;
