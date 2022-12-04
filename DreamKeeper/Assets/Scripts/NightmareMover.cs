@@ -70,7 +70,8 @@ public class NightmareMover : MonoBehaviour
                 var hero = (Vector2)Hero.transform.position;
                 var nightmare = (Vector2)transform.position;
                 var heroToTarget = (nightmare - hero).normalized;
-                transform.position += new Vector3(heroToTarget.x, heroToTarget.y, 0f) * (Time.deltaTime * MaxVelocity);
+                float speed = IsDead ? 0.2f * MaxVelocity : MaxVelocity;
+                transform.position += new Vector3(heroToTarget.x, heroToTarget.y, 0f) * (Time.deltaTime * speed);
                 break;
             }
             case State.Flee:
@@ -140,6 +141,7 @@ public class NightmareMover : MonoBehaviour
         transform.position = new Vector3(newPosition.x, newPosition.y, Hero.transform.position.z);
     }
 
+    public bool IsDead = false;
     private float Offset = 0.5f;
     private float SinusWaveStartValue;
     private float SinusWaveTime;

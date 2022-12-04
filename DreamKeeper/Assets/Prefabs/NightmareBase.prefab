@@ -10145,6 +10145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 100
+  Mover: {fileID: 7160296293328490067}
   DeathSound: {fileID: 5627539791393108269}
   DamageSound: {fileID: 7813805752219380131}
   Base: {fileID: 3591622481319665136}

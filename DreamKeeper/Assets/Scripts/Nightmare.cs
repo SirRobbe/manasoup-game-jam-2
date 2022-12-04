@@ -31,6 +31,8 @@ public class Nightmare : MonoBehaviour
 
     private IEnumerator Kill(bool muteAudio)
     {
+        Mover.IsDead = true;
+        Mover.CurrentState = NightmareMover.State.BounceBack;
         Collider.enabled = false;
         
         DamageSound.Stop();
@@ -60,6 +62,7 @@ public class Nightmare : MonoBehaviour
     }
     
     public int Health = 100;
+    public NightmareMover Mover;
     public AudioSource DeathSound;
     public AudioSource DamageSound;
     public SpriteRenderer Base;
