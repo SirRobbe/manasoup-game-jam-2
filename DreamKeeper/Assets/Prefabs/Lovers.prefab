@@ -45,9 +45,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24e2257dd33db8d4cb66898eb3af303b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Duration: 2
-  Damage: 4
-  Range: 5
+  Duration: 3
+  Damage: 70
+  Range: 6
   Cooldown: 5
   Timer: 0
   Player: {fileID: 0}
