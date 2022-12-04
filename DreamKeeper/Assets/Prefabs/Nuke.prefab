@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Nightmares: []
-  CoolDown: 10
+  CoolDown: 20
   Timer: 0
 --- !u!82 &4896195564919273364
 AudioSource:
