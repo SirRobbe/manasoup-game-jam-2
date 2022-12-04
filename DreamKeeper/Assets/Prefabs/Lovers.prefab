@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Duration: 2
   Damage: 4
-  Range: 1
+  Range: 5
   Cooldown: 5
   Timer: 0
   Player: {fileID: 0}
