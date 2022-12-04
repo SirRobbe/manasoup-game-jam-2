@@ -2,6 +2,13 @@ using UnityEngine;
 
 public class Lovers : ACardManager
 {
+    AudioSource audioSource;
+
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
     private void Update()
     {
         Timer -= Time.deltaTime;
@@ -15,7 +22,8 @@ public class Lovers : ACardManager
             return;
         }
         Player.GetComponent<ParticleSystem>().Play();
-        
+        audioSource.Play(0);
+
         foreach(var nightmare in GameState.s_Nightmares)
         {
             float distance = Vector2.Distance(nightmare.transform.position, Player.transform.position);
